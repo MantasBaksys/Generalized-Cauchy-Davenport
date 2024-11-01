@@ -20,12 +20,11 @@ context group
 
 begin
 
-subsection\<open>Definition of the counterexample pair relation in \cite{DeVos2016OnAG}\<close>
+subsection\<open>The counterexample pair relation in \cite{DeVos2016OnAG}\<close>
 definition devos_rel where 
   "devos_rel = (\<lambda> (A, B). card(A \<cdots> B)) <*mlex*> (inv_image ({(n, m). n > m} <*lex*> 
   measure (\<lambda> (A, B). card A))) (\<lambda> (A, B). (card A + card B, (A, B)))"
 
-subsection\<open>Lemmas about the counterexample pair relation in \cite{DeVos2016OnAG}\<close>
 lemma devos_rel_iff: 
   "((A, B), (C, D)) \<in> devos_rel \<longleftrightarrow> card(A \<cdots> B) < card(C \<cdots> D) \<or> 
   (card(A \<cdots> B) = card(C \<cdots> D) \<and> card A + card B > card C + card D) \<or>
@@ -87,13 +86,8 @@ proof-
   ultimately show ?thesis by simp
 qed
 
-subsection\<open>Definition of $p(G)$ in \cite{DeVos2016OnAG} with associated lemmas\<close>
+subsection\<open>$p(G)$ -- the order of the smallest nontrivial finite subgroup of a group : definition and lemmas\<close>
 definition p where "p = Inf (card ` {H. subgroup H G (\<cdot>) \<one> \<and> finite H \<and> H \<noteq> {\<one>}})"
-
-lemma powers_subgroup:
-  assumes "g \<in> G"
-  shows "subgroup (powers g) G (\<cdot>) \<one>" 
-  by (simp add: assms powers_group powers_submonoid subgroup.intro)
 
 lemma subgroup_finite_ge:
   assumes "subgroup H G (\<cdot>) \<one>" and "H \<noteq> {\<one>}" and "finite H"
@@ -106,9 +100,9 @@ lemma subgroup_infinite_or_ge:
 
 end
 
-subsection\<open>Proof of the Generalized Cauchy-Davenport for (non-abelian) groups\<close>
+subsection\<open>Proof of the Generalized Cauchy--Davenport Theorem for (non-abelian) groups\<close>
 
-text\<open>Generalized Cauchy-Davenport theorem for (non-abelian) groups due to Matt DeVos \cite{DeVos2016OnAG}\<close>
+text\<open>Generalized Cauchy--Davenport Theorem for (non-abelian) groups due to Matt DeVos \cite{DeVos2016OnAG}\<close>
 theorem (in group) Generalized_Cauchy_Davenport:
   assumes hAne: "A \<noteq> {}" and hBne: "B \<noteq> {}" and hAG: "A \<subseteq> G" and hBG: "B \<subseteq> G" and
   hAfin: "finite A" and hBfin: "finite B" and

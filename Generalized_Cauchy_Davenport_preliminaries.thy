@@ -1,4 +1,4 @@
-section\<open>Generalized Cauchy--Davenport Theorem: preliminaries\<close>
+section\<open>Preliminaries on well-orderings, groups, and sumsets\<close>
 
 (*
   Session: Generalized_Cauchy_Davenport
@@ -68,7 +68,7 @@ context monoid
 
 begin
 
-subsection\<open>Pointwise set multiplication in monoid: definition and key-lemmas\<close>
+subsection\<open>Pointwise set multiplication in a monoid: definition and key lemmas\<close>
 
 inductive_set smul :: "'a set \<Rightarrow> 'a set \<Rightarrow> 'a set" for A B 
   where
@@ -365,7 +365,24 @@ lemma powers_ne_one:
   shows "powers g \<noteq> {\<one>}" using assms nat_powers_ne_one 
   by (metis all_not_in_conv nat_powers_subset one_mem_nat_powers subset_singleton_iff)
 
-subsection\<open>Definition of the order of an element in a group\<close>
+end
+
+context group
+
+begin
+
+lemma powers_subgroup:
+  assumes "g \<in> G"
+  shows "subgroup (powers g) G (\<cdot>) \<one>" 
+  by (simp add: assms powers_group powers_submonoid subgroup.intro)
+
+end
+
+context monoid
+
+begin
+
+subsection\<open>Definition of the order of an element in a monoid\<close>
 definition order 
   where "order g = (if (\<exists> n. n > 0 \<and> g ^ n = \<one>) then Min {n. g ^ n = \<one> \<and> n > 0} else 0)"
 
@@ -471,7 +488,7 @@ proof
   ultimately show False using assms using finite_surj by blast
 qed
 
-subsection\<open>Pointwise set multiplication in group: auxiliary lemmas\<close>
+subsection\<open>Pointwise set multiplication in a group: auxiliary lemmas\<close>
 lemma set_inverse_composition_commute:
   assumes "X \<subseteq> G" and "Y \<subseteq> G"
   shows "inverse ` (X \<cdots> Y) = (inverse ` Y) \<cdots> (inverse ` X)"
