@@ -1,0 +1,1462 @@
+%
+\begin{isabellebody}%
+\setisabellecontext{Generalized{\isacharunderscore}{\kern0pt}Cauchy{\isacharunderscore}{\kern0pt}Davenport{\isacharunderscore}{\kern0pt}main{\isacharunderscore}{\kern0pt}proof}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsection{Generalized Cauchy--Davenport Theorem: main proof%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\isatagtheory
+\isacommand{theory}\isamarkupfalse%
+\ Generalized{\isacharunderscore}{\kern0pt}Cauchy{\isacharunderscore}{\kern0pt}Davenport{\isacharunderscore}{\kern0pt}main{\isacharunderscore}{\kern0pt}proof\isanewline
+\ \ \isakeyword{imports}\isanewline
+\ \ Generalized{\isacharunderscore}{\kern0pt}Cauchy{\isacharunderscore}{\kern0pt}Davenport{\isacharunderscore}{\kern0pt}preliminaries\isanewline
+\isakeyword{begin}%
+\endisatagtheory
+{\isafoldtheory}%
+%
+\isadelimtheory
+\isanewline
+%
+\endisadelimtheory
+\isanewline
+\isacommand{context}\isamarkupfalse%
+\ group\isanewline
+\isanewline
+\isakeyword{begin}%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsection{The counterexample pair relation in \cite{DeVos2016OnAG}%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+\isacommand{definition}\isamarkupfalse%
+\ devos{\isacharunderscore}{\kern0pt}rel\ \isakeyword{where}\ \isanewline
+\ \ {\isachardoublequoteopen}devos{\isacharunderscore}{\kern0pt}rel\ {\isacharequal}{\kern0pt}\ {\isacharparenleft}{\kern0pt}{\isasymlambda}\ {\isacharparenleft}{\kern0pt}A{\isacharcomma}{\kern0pt}\ B{\isacharparenright}{\kern0pt}{\isachardot}{\kern0pt}\ card{\isacharparenleft}{\kern0pt}A\ {\isasymcdots}\ B{\isacharparenright}{\kern0pt}{\isacharparenright}{\kern0pt}\ {\isacharless}{\kern0pt}{\isacharasterisk}{\kern0pt}mlex{\isacharasterisk}{\kern0pt}{\isachargreater}{\kern0pt}\ {\isacharparenleft}{\kern0pt}inv{\isacharunderscore}{\kern0pt}image\ {\isacharparenleft}{\kern0pt}{\isacharbraceleft}{\kern0pt}{\isacharparenleft}{\kern0pt}n{\isacharcomma}{\kern0pt}\ m{\isacharparenright}{\kern0pt}{\isachardot}{\kern0pt}\ n\ {\isachargreater}{\kern0pt}\ m{\isacharbraceright}{\kern0pt}\ {\isacharless}{\kern0pt}{\isacharasterisk}{\kern0pt}lex{\isacharasterisk}{\kern0pt}{\isachargreater}{\kern0pt}\ \isanewline
+\ \ measure\ {\isacharparenleft}{\kern0pt}{\isasymlambda}\ {\isacharparenleft}{\kern0pt}A{\isacharcomma}{\kern0pt}\ B{\isacharparenright}{\kern0pt}{\isachardot}{\kern0pt}\ card\ A{\isacharparenright}{\kern0pt}{\isacharparenright}{\kern0pt}{\isacharparenright}{\kern0pt}\ {\isacharparenleft}{\kern0pt}{\isasymlambda}\ {\isacharparenleft}{\kern0pt}A{\isacharcomma}{\kern0pt}\ B{\isacharparenright}{\kern0pt}{\isachardot}{\kern0pt}\ {\isacharparenleft}{\kern0pt}card\ A\ {\isacharplus}{\kern0pt}\ card\ B{\isacharcomma}{\kern0pt}\ {\isacharparenleft}{\kern0pt}A{\isacharcomma}{\kern0pt}\ B{\isacharparenright}{\kern0pt}{\isacharparenright}{\kern0pt}{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}\isanewline
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ devos{\isacharunderscore}{\kern0pt}rel{\isacharunderscore}{\kern0pt}iff{\isacharcolon}{\kern0pt}\ \isanewline
+\ \ {\isachardoublequoteopen}{\isacharparenleft}{\kern0pt}{\isacharparenleft}{\kern0pt}A{\isacharcomma}{\kern0pt}\ B{\isacharparenright}{\kern0pt}{\isacharcomma}{\kern0pt}\ {\isacharparenleft}{\kern0pt}C{\isacharcomma}{\kern0pt}\ D{\isacharparenright}{\kern0pt}{\isacharparenright}{\kern0pt}\ {\isasymin}\ devos{\isacharunderscore}{\kern0pt}rel\ {\isasymlongleftrightarrow}\ card{\isacharparenleft}{\kern0pt}A\ {\isasymcdots}\ B{\isacharparenright}{\kern0pt}\ {\isacharless}{\kern0pt}\ card{\isacharparenleft}{\kern0pt}C\ {\isasymcdots}\ D{\isacharparenright}{\kern0pt}\ {\isasymor}\ \isanewline
+\ \ {\isacharparenleft}{\kern0pt}card{\isacharparenleft}{\kern0pt}A\ {\isasymcdots}\ B{\isacharparenright}{\kern0pt}\ {\isacharequal}{\kern0pt}\ card{\isacharparenleft}{\kern0pt}C\ {\isasymcdots}\ D{\isacharparenright}{\kern0pt}\ {\isasymand}\ card\ A\ {\isacharplus}{\kern0pt}\ card\ B\ {\isachargreater}{\kern0pt}\ card\ C\ {\isacharplus}{\kern0pt}\ card\ D{\isacharparenright}{\kern0pt}\ {\isasymor}\isanewline
+\ \ {\isacharparenleft}{\kern0pt}card{\isacharparenleft}{\kern0pt}A\ {\isasymcdots}\ B{\isacharparenright}{\kern0pt}\ {\isacharequal}{\kern0pt}\ card{\isacharparenleft}{\kern0pt}C\ {\isasymcdots}\ D{\isacharparenright}{\kern0pt}\ {\isasymand}\ card\ A\ {\isacharplus}{\kern0pt}\ card\ B\ {\isacharequal}{\kern0pt}\ card\ C\ {\isacharplus}{\kern0pt}\ card\ D\ {\isasymand}\ card\ A\ {\isacharless}{\kern0pt}\ card\ C{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{using}\isamarkupfalse%
+\ devos{\isacharunderscore}{\kern0pt}rel{\isacharunderscore}{\kern0pt}def\ mlex{\isacharunderscore}{\kern0pt}iff{\isacharbrackleft}{\kern0pt}of\ {\isacharunderscore}{\kern0pt}\ {\isacharunderscore}{\kern0pt}\ {\isachardoublequoteopen}{\isasymlambda}\ {\isacharparenleft}{\kern0pt}A{\isacharcomma}{\kern0pt}\ B{\isacharparenright}{\kern0pt}{\isachardot}{\kern0pt}\ card{\isacharparenleft}{\kern0pt}A\ {\isasymcdots}\ B{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}{\isacharbrackright}{\kern0pt}\ \isacommand{by}\isamarkupfalse%
+\ fastforce%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ devos{\isacharunderscore}{\kern0pt}rel{\isacharunderscore}{\kern0pt}le{\isacharunderscore}{\kern0pt}smul{\isacharcolon}{\kern0pt}\isanewline
+\ \ {\isachardoublequoteopen}{\isacharparenleft}{\kern0pt}{\isacharparenleft}{\kern0pt}A{\isacharcomma}{\kern0pt}\ B{\isacharparenright}{\kern0pt}{\isacharcomma}{\kern0pt}\ {\isacharparenleft}{\kern0pt}C{\isacharcomma}{\kern0pt}\ D{\isacharparenright}{\kern0pt}{\isacharparenright}{\kern0pt}\ {\isasymin}\ devos{\isacharunderscore}{\kern0pt}rel\ {\isasymLongrightarrow}\ card{\isacharparenleft}{\kern0pt}A\ {\isasymcdots}\ B{\isacharparenright}{\kern0pt}\ {\isasymle}\ card{\isacharparenleft}{\kern0pt}C\ {\isasymcdots}\ D{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{using}\isamarkupfalse%
+\ devos{\isacharunderscore}{\kern0pt}rel{\isacharunderscore}{\kern0pt}iff\ \isacommand{by}\isamarkupfalse%
+\ fastforce%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\begin{isamarkuptext}%
+Lemma stating that the above relation due to DeVos is well-founded%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ devos{\isacharunderscore}{\kern0pt}rel{\isacharunderscore}{\kern0pt}wf\ {\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}wf\ {\isacharparenleft}{\kern0pt}Restr\ devos{\isacharunderscore}{\kern0pt}rel\ \isanewline
+\ \ {\isacharbraceleft}{\kern0pt}{\isacharparenleft}{\kern0pt}A{\isacharcomma}{\kern0pt}\ B{\isacharparenright}{\kern0pt}{\isachardot}{\kern0pt}\ finite\ A\ {\isasymand}\ A\ {\isasymnoteq}\ {\isacharbraceleft}{\kern0pt}{\isacharbraceright}{\kern0pt}\ {\isasymand}\ A\ {\isasymsubseteq}\ G\ {\isasymand}\ finite\ B\ {\isasymand}\ B\ {\isasymnoteq}\ {\isacharbraceleft}{\kern0pt}{\isacharbraceright}{\kern0pt}\ {\isasymand}\ B\ {\isasymsubseteq}\ G{\isacharbraceright}{\kern0pt}{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}\ {\isacharparenleft}{\kern0pt}\isakeyword{is}\ {\isachardoublequoteopen}wf\ {\isacharparenleft}{\kern0pt}Restr\ devos{\isacharunderscore}{\kern0pt}rel\ {\isacharquery}{\kern0pt}fin{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}{\isacharparenright}{\kern0pt}\isanewline
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+\isacommand{proof}\isamarkupfalse%
+{\isacharminus}{\kern0pt}\isanewline
+\ \ \isacommand{define}\isamarkupfalse%
+\ f\ \isakeyword{where}\ {\isachardoublequoteopen}f\ {\isacharequal}{\kern0pt}\ {\isacharparenleft}{\kern0pt}{\isasymlambda}\ {\isacharparenleft}{\kern0pt}A{\isacharcomma}{\kern0pt}\ B{\isacharparenright}{\kern0pt}{\isachardot}{\kern0pt}\ card{\isacharparenleft}{\kern0pt}A{\isasymcdots}B{\isacharparenright}{\kern0pt}{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{define}\isamarkupfalse%
+\ g\ \isakeyword{where}\ {\isachardoublequoteopen}g\ {\isacharequal}{\kern0pt}\ {\isacharparenleft}{\kern0pt}{\isasymlambda}\ {\isacharparenleft}{\kern0pt}A\ {\isacharcolon}{\kern0pt}{\isacharcolon}{\kern0pt}\ {\isacharprime}{\kern0pt}a\ set{\isacharcomma}{\kern0pt}\ B\ {\isacharcolon}{\kern0pt}{\isacharcolon}{\kern0pt}\ {\isacharprime}{\kern0pt}a\ set{\isacharparenright}{\kern0pt}{\isachardot}{\kern0pt}\ {\isacharparenleft}{\kern0pt}card\ A\ {\isacharplus}{\kern0pt}\ card\ B{\isacharcomma}{\kern0pt}\ {\isacharparenleft}{\kern0pt}A{\isacharcomma}{\kern0pt}\ B{\isacharparenright}{\kern0pt}{\isacharparenright}{\kern0pt}{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{define}\isamarkupfalse%
+\ h\ \isakeyword{where}\ {\isachardoublequoteopen}h\ {\isacharequal}{\kern0pt}\ {\isacharparenleft}{\kern0pt}{\isasymlambda}\ {\isacharparenleft}{\kern0pt}A\ {\isacharcolon}{\kern0pt}{\isacharcolon}{\kern0pt}\ {\isacharprime}{\kern0pt}a\ set{\isacharcomma}{\kern0pt}\ B\ {\isacharcolon}{\kern0pt}{\isacharcolon}{\kern0pt}\ {\isacharprime}{\kern0pt}a\ set{\isacharparenright}{\kern0pt}{\isachardot}{\kern0pt}\ card\ A\ {\isacharplus}{\kern0pt}\ card\ B{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{define}\isamarkupfalse%
+\ s\ \isakeyword{where}\ {\isachardoublequoteopen}s\ {\isacharequal}{\kern0pt}\ {\isacharparenleft}{\kern0pt}{\isacharbraceleft}{\kern0pt}{\isacharparenleft}{\kern0pt}n\ {\isacharcolon}{\kern0pt}{\isacharcolon}{\kern0pt}\ nat{\isacharcomma}{\kern0pt}\ m\ {\isacharcolon}{\kern0pt}{\isacharcolon}{\kern0pt}\ nat{\isacharparenright}{\kern0pt}{\isachardot}{\kern0pt}\ n\ {\isachargreater}{\kern0pt}\ m{\isacharbraceright}{\kern0pt}\ {\isacharless}{\kern0pt}{\isacharasterisk}{\kern0pt}lex{\isacharasterisk}{\kern0pt}{\isachargreater}{\kern0pt}\ measure\ {\isacharparenleft}{\kern0pt}{\isasymlambda}\ {\isacharparenleft}{\kern0pt}A\ {\isacharcolon}{\kern0pt}{\isacharcolon}{\kern0pt}\ {\isacharprime}{\kern0pt}a\ set{\isacharcomma}{\kern0pt}\ B\ {\isacharcolon}{\kern0pt}{\isacharcolon}{\kern0pt}\ {\isacharprime}{\kern0pt}a\ set{\isacharparenright}{\kern0pt}{\isachardot}{\kern0pt}\ card\ A{\isacharparenright}{\kern0pt}{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{have}\isamarkupfalse%
+\ hle{\isadigit{2}}f{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}{\isasymAnd}\ x{\isachardot}{\kern0pt}\ x\ {\isasymin}\ {\isacharquery}{\kern0pt}fin\ {\isasymLongrightarrow}\ h\ x\ {\isasymle}\ {\isadigit{2}}\ {\isacharasterisk}{\kern0pt}\ f\ x{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{proof}\isamarkupfalse%
+{\isacharminus}{\kern0pt}\isanewline
+\ \ \ \ \isacommand{fix}\isamarkupfalse%
+\ x\ \isacommand{assume}\isamarkupfalse%
+\ hx{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}x\ {\isasymin}\ {\isacharquery}{\kern0pt}fin{\isachardoublequoteclose}\isanewline
+\ \ \ \ \isacommand{then}\isamarkupfalse%
+\ \isacommand{obtain}\isamarkupfalse%
+\ A\ B\ \isakeyword{where}\ hxAB{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}x\ {\isacharequal}{\kern0pt}\ {\isacharparenleft}{\kern0pt}A{\isacharcomma}{\kern0pt}\ B{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}\ \isacommand{by}\isamarkupfalse%
+\ blast\isanewline
+\ \ \ \ \isacommand{then}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}card\ A\ {\isasymle}\ card\ {\isacharparenleft}{\kern0pt}A\ {\isasymcdots}\ B{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}\ \isakeyword{and}\ {\isachardoublequoteopen}card\ B\ {\isasymle}\ card\ {\isacharparenleft}{\kern0pt}A\ {\isasymcdots}\ B{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}\ \isanewline
+\ \ \ \ \ \ \isacommand{using}\isamarkupfalse%
+\ card{\isacharunderscore}{\kern0pt}le{\isacharunderscore}{\kern0pt}smul{\isacharunderscore}{\kern0pt}left\ card{\isacharunderscore}{\kern0pt}le{\isacharunderscore}{\kern0pt}smul{\isacharunderscore}{\kern0pt}right\ hx\ \isacommand{by}\isamarkupfalse%
+\ auto\isanewline
+\ \ \ \ \isacommand{then}\isamarkupfalse%
+\ \isacommand{show}\isamarkupfalse%
+\ {\isachardoublequoteopen}h\ x\ {\isasymle}\ {\isadigit{2}}\ {\isacharasterisk}{\kern0pt}\ f\ x{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
+\ hxAB\ h{\isacharunderscore}{\kern0pt}def\ f{\isacharunderscore}{\kern0pt}def\ \isacommand{by}\isamarkupfalse%
+\ force\isanewline
+\ \ \isacommand{qed}\isamarkupfalse%
+\isanewline
+\ \ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}wf\ {\isacharparenleft}{\kern0pt}Restr\ {\isacharparenleft}{\kern0pt}measure\ f{\isacharparenright}{\kern0pt}\ {\isacharquery}{\kern0pt}fin{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}\ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}{\kern0pt}simp\ add{\isacharcolon}{\kern0pt}\ wf{\isacharunderscore}{\kern0pt}Int{\isadigit{1}}{\isacharparenright}{\kern0pt}\isanewline
+\ \ \isacommand{moreover}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}{\isasymAnd}\ a{\isachardot}{\kern0pt}\ a\ {\isasymin}\ range\ f\ {\isasymLongrightarrow}\ wf\ {\isacharparenleft}{\kern0pt}Restr\ {\isacharparenleft}{\kern0pt}Restr\ {\isacharparenleft}{\kern0pt}inv{\isacharunderscore}{\kern0pt}image\ s\ g{\isacharparenright}{\kern0pt}\ {\isacharbraceleft}{\kern0pt}x{\isachardot}{\kern0pt}\ f\ x\ {\isacharequal}{\kern0pt}\ a{\isacharbraceright}{\kern0pt}{\isacharparenright}{\kern0pt}\ {\isacharquery}{\kern0pt}fin{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{proof}\isamarkupfalse%
+{\isacharminus}{\kern0pt}\isanewline
+\ \ \ \ \isacommand{fix}\isamarkupfalse%
+\ y\ \isacommand{assume}\isamarkupfalse%
+\ {\isachardoublequoteopen}y\ {\isasymin}\ \ range\ f{\isachardoublequoteclose}\isanewline
+\ \ \ \ \isacommand{then}\isamarkupfalse%
+\ \isacommand{show}\isamarkupfalse%
+\ {\isachardoublequoteopen}wf\ {\isacharparenleft}{\kern0pt}Restr\ {\isacharparenleft}{\kern0pt}Restr\ {\isacharparenleft}{\kern0pt}inv{\isacharunderscore}{\kern0pt}image\ s\ g{\isacharparenright}{\kern0pt}\ {\isacharbraceleft}{\kern0pt}x{\isachardot}{\kern0pt}\ f\ x\ {\isacharequal}{\kern0pt}\ y{\isacharbraceright}{\kern0pt}{\isacharparenright}{\kern0pt}\ {\isacharquery}{\kern0pt}fin{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}\isanewline
+\ \ \ \ \isacommand{proof}\isamarkupfalse%
+{\isacharminus}{\kern0pt}\isanewline
+\ \ \ \ \ \ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}Restr\ {\isacharparenleft}{\kern0pt}{\isacharbraceleft}{\kern0pt}x{\isachardot}{\kern0pt}\ f\ x\ {\isacharequal}{\kern0pt}\ y{\isacharbraceright}{\kern0pt}\ {\isasymtimes}\ {\isacharbraceleft}{\kern0pt}x{\isachardot}{\kern0pt}\ f\ x\ {\isacharequal}{\kern0pt}\ y{\isacharbraceright}{\kern0pt}\ {\isasyminter}\ {\isacharparenleft}{\kern0pt}inv{\isacharunderscore}{\kern0pt}image\ s\ g{\isacharparenright}{\kern0pt}{\isacharparenright}{\kern0pt}\ {\isacharquery}{\kern0pt}fin\ {\isasymsubseteq}\ \isanewline
+\ \ \ \ \ \ \ \ Restr\ {\isacharparenleft}{\kern0pt}{\isacharparenleft}{\kern0pt}{\isacharparenleft}{\kern0pt}{\isasymlambda}\ x{\isachardot}{\kern0pt}\ {\isadigit{2}}\ {\isacharasterisk}{\kern0pt}\ f\ x\ {\isacharminus}{\kern0pt}\ h\ x{\isacharparenright}{\kern0pt}\ {\isacharless}{\kern0pt}{\isacharasterisk}{\kern0pt}mlex{\isacharasterisk}{\kern0pt}{\isachargreater}{\kern0pt}\ measure\ {\isacharparenleft}{\kern0pt}{\isasymlambda}\ {\isacharparenleft}{\kern0pt}A\ {\isacharcolon}{\kern0pt}{\isacharcolon}{\kern0pt}\ {\isacharprime}{\kern0pt}a\ set{\isacharcomma}{\kern0pt}\ B\ {\isacharcolon}{\kern0pt}{\isacharcolon}{\kern0pt}\ {\isacharprime}{\kern0pt}a\ set{\isacharparenright}{\kern0pt}{\isachardot}{\kern0pt}\ card\ A{\isacharparenright}{\kern0pt}{\isacharparenright}{\kern0pt}\ {\isasyminter}\ \isanewline
+\ \ \ \ \ \ \ \ {\isacharbraceleft}{\kern0pt}x{\isachardot}{\kern0pt}\ f\ x\ {\isacharequal}{\kern0pt}\ y{\isacharbraceright}{\kern0pt}\ {\isasymtimes}\ {\isacharbraceleft}{\kern0pt}x{\isachardot}{\kern0pt}\ f\ x\ {\isacharequal}{\kern0pt}\ y{\isacharbraceright}{\kern0pt}{\isacharparenright}{\kern0pt}\ {\isacharquery}{\kern0pt}fin{\isachardoublequoteclose}\isanewline
+\ \ \ \ \ \ \isacommand{proof}\isamarkupfalse%
+\isanewline
+\ \ \ \ \ \ \ \ \isacommand{fix}\isamarkupfalse%
+\ z\ \isacommand{assume}\isamarkupfalse%
+\ hz{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}z\ {\isasymin}\ Restr\ {\isacharparenleft}{\kern0pt}{\isacharbraceleft}{\kern0pt}x{\isachardot}{\kern0pt}\ f\ x\ {\isacharequal}{\kern0pt}\ y{\isacharbraceright}{\kern0pt}\ {\isasymtimes}\ {\isacharbraceleft}{\kern0pt}x{\isachardot}{\kern0pt}\ f\ x\ {\isacharequal}{\kern0pt}\ y{\isacharbraceright}{\kern0pt}\ {\isasyminter}\ {\isacharparenleft}{\kern0pt}inv{\isacharunderscore}{\kern0pt}image\ s\ g{\isacharparenright}{\kern0pt}{\isacharparenright}{\kern0pt}\ {\isacharquery}{\kern0pt}fin{\isachardoublequoteclose}\isanewline
+\ \ \ \ \ \ \ \ \isacommand{then}\isamarkupfalse%
+\ \isacommand{obtain}\isamarkupfalse%
+\ a\ b\ \isakeyword{where}\ hzab{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}z\ {\isacharequal}{\kern0pt}\ {\isacharparenleft}{\kern0pt}a{\isacharcomma}{\kern0pt}\ b{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}\ \isakeyword{and}\ {\isachardoublequoteopen}f\ a\ {\isacharequal}{\kern0pt}\ y{\isachardoublequoteclose}\ \isakeyword{and}\ {\isachardoublequoteopen}f\ b\ {\isacharequal}{\kern0pt}\ y{\isachardoublequoteclose}\ \isakeyword{and}\ \isanewline
+\ \ \ \ \ \ \ \ \ \ {\isachardoublequoteopen}h\ a\ {\isachargreater}{\kern0pt}\ h\ b\ {\isasymor}\ h\ a\ {\isacharequal}{\kern0pt}\ h\ b\ {\isasymand}\ {\isacharparenleft}{\kern0pt}a{\isacharcomma}{\kern0pt}\ b{\isacharparenright}{\kern0pt}\ {\isasymin}\ measure\ {\isacharparenleft}{\kern0pt}{\isasymlambda}\ {\isacharparenleft}{\kern0pt}A{\isacharcomma}{\kern0pt}\ B{\isacharparenright}{\kern0pt}{\isachardot}{\kern0pt}\ card\ A{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}\ \isakeyword{and}\ \isanewline
+\ \ \ \ \ \ \ \ \ \ {\isachardoublequoteopen}a\ {\isasymin}\ {\isacharquery}{\kern0pt}fin{\isachardoublequoteclose}\ \isakeyword{and}\ {\isachardoublequoteopen}b\ {\isasymin}\ {\isacharquery}{\kern0pt}fin{\isachardoublequoteclose}\isanewline
+\ \ \ \ \ \ \ \ \ \ \isacommand{using}\isamarkupfalse%
+\ s{\isacharunderscore}{\kern0pt}def\ g{\isacharunderscore}{\kern0pt}def\ h{\isacharunderscore}{\kern0pt}def\ \isacommand{by}\isamarkupfalse%
+\ force\isanewline
+\ \ \ \ \ \ \ \ \isacommand{then}\isamarkupfalse%
+\ \isacommand{obtain}\isamarkupfalse%
+\ {\isachardoublequoteopen}{\isadigit{2}}\ {\isacharasterisk}{\kern0pt}\ f\ a\ {\isacharminus}{\kern0pt}\ h\ a\ {\isacharless}{\kern0pt}\ {\isadigit{2}}\ {\isacharasterisk}{\kern0pt}\ f\ b\ {\isacharminus}{\kern0pt}\ h\ b\ {\isasymor}\ \isanewline
+\ \ \ \ \ \ \ \ \ \ {\isadigit{2}}\ {\isacharasterisk}{\kern0pt}\ f\ a\ {\isacharminus}{\kern0pt}\ h\ a\ {\isacharequal}{\kern0pt}\ {\isadigit{2}}\ {\isacharasterisk}{\kern0pt}\ f\ b\ {\isacharminus}{\kern0pt}\ h\ b\ {\isasymand}\ {\isacharparenleft}{\kern0pt}a{\isacharcomma}{\kern0pt}\ b{\isacharparenright}{\kern0pt}\ {\isasymin}\ measure\ {\isacharparenleft}{\kern0pt}{\isasymlambda}\ {\isacharparenleft}{\kern0pt}A{\isacharcomma}{\kern0pt}\ B{\isacharparenright}{\kern0pt}{\isachardot}{\kern0pt}\ card\ A{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}\ \isanewline
+\ \ \ \ \ \ \ \ \ \ \isacommand{using}\isamarkupfalse%
+\ hle{\isadigit{2}}f\ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}{\kern0pt}smt\ {\isacharparenleft}{\kern0pt}verit{\isacharparenright}{\kern0pt}\ diff{\isacharunderscore}{\kern0pt}less{\isacharunderscore}{\kern0pt}mono{\isadigit{2}}\ le{\isacharunderscore}{\kern0pt}antisym\ nat{\isacharunderscore}{\kern0pt}less{\isacharunderscore}{\kern0pt}le{\isacharparenright}{\kern0pt}\isanewline
+\ \ \ \ \ \ \ \ \isacommand{then}\isamarkupfalse%
+\ \isacommand{show}\isamarkupfalse%
+\ {\isachardoublequoteopen}z\ {\isasymin}\ Restr\ {\isacharparenleft}{\kern0pt}{\isacharparenleft}{\kern0pt}{\isacharparenleft}{\kern0pt}{\isasymlambda}\ x{\isachardot}{\kern0pt}\ {\isadigit{2}}\ {\isacharasterisk}{\kern0pt}\ f\ x\ {\isacharminus}{\kern0pt}\ h\ x{\isacharparenright}{\kern0pt}\ {\isacharless}{\kern0pt}{\isacharasterisk}{\kern0pt}mlex{\isacharasterisk}{\kern0pt}{\isachargreater}{\kern0pt}\ measure\ {\isacharparenleft}{\kern0pt}{\isasymlambda}\ {\isacharparenleft}{\kern0pt}A{\isacharcomma}{\kern0pt}\ B{\isacharparenright}{\kern0pt}{\isachardot}{\kern0pt}\ card\ A{\isacharparenright}{\kern0pt}{\isacharparenright}{\kern0pt}\ {\isasyminter}\ \isanewline
+\ \ \ \ \ \ \ \ {\isacharbraceleft}{\kern0pt}x{\isachardot}{\kern0pt}\ f\ x\ {\isacharequal}{\kern0pt}\ y{\isacharbraceright}{\kern0pt}\ {\isasymtimes}\ {\isacharbraceleft}{\kern0pt}x{\isachardot}{\kern0pt}\ f\ x\ {\isacharequal}{\kern0pt}\ y{\isacharbraceright}{\kern0pt}{\isacharparenright}{\kern0pt}\ {\isacharquery}{\kern0pt}fin{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
+\ hzab\ hz\ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}{\kern0pt}simp\ add{\isacharcolon}{\kern0pt}\ mlex{\isacharunderscore}{\kern0pt}iff{\isacharparenright}{\kern0pt}\isanewline
+\ \ \ \ \ \ \isacommand{qed}\isamarkupfalse%
+\isanewline
+\ \ \ \ \ \ \isacommand{moreover}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}wf\ {\isacharparenleft}{\kern0pt}{\isacharparenleft}{\kern0pt}{\isasymlambda}\ x{\isachardot}{\kern0pt}\ {\isadigit{2}}\ {\isacharasterisk}{\kern0pt}\ f\ x\ {\isacharminus}{\kern0pt}\ h\ x{\isacharparenright}{\kern0pt}\ {\isacharless}{\kern0pt}{\isacharasterisk}{\kern0pt}mlex{\isacharasterisk}{\kern0pt}{\isachargreater}{\kern0pt}\ measure\ {\isacharparenleft}{\kern0pt}{\isasymlambda}\ {\isacharparenleft}{\kern0pt}A{\isacharcomma}{\kern0pt}\ B{\isacharparenright}{\kern0pt}{\isachardot}{\kern0pt}\ card\ A{\isacharparenright}{\kern0pt}{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}\isanewline
+\ \ \ \ \ \ \ \ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}{\kern0pt}simp\ add{\isacharcolon}{\kern0pt}\ wf{\isacharunderscore}{\kern0pt}mlex{\isacharparenright}{\kern0pt}\isanewline
+\ \ \ \ \ \ \isacommand{ultimately}\isamarkupfalse%
+\ \isacommand{show}\isamarkupfalse%
+\ {\isacharquery}{\kern0pt}thesis\ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}{\kern0pt}simp\ add{\isacharcolon}{\kern0pt}\ Int{\isacharunderscore}{\kern0pt}commute\ wf{\isacharunderscore}{\kern0pt}Int{\isadigit{1}}\ wf{\isacharunderscore}{\kern0pt}subset{\isacharparenright}{\kern0pt}\isanewline
+\ \ \ \ \isacommand{qed}\isamarkupfalse%
+\isanewline
+\ \ \isacommand{qed}\isamarkupfalse%
+\isanewline
+\ \ \isacommand{moreover}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}trans\ {\isacharparenleft}{\kern0pt}{\isacharquery}{\kern0pt}fin\ {\isasymtimes}\ {\isacharquery}{\kern0pt}fin{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
+\ trans{\isacharunderscore}{\kern0pt}def\ \isacommand{by}\isamarkupfalse%
+\ fast\isanewline
+\ \ \isacommand{ultimately}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}wf\ {\isacharparenleft}{\kern0pt}Restr\ {\isacharparenleft}{\kern0pt}inv{\isacharunderscore}{\kern0pt}image\ {\isacharparenleft}{\kern0pt}less{\isacharunderscore}{\kern0pt}than\ {\isacharless}{\kern0pt}{\isacharasterisk}{\kern0pt}lex{\isacharasterisk}{\kern0pt}{\isachargreater}{\kern0pt}\ s{\isacharparenright}{\kern0pt}\ {\isacharparenleft}{\kern0pt}{\isasymlambda}\ c{\isachardot}{\kern0pt}\ {\isacharparenleft}{\kern0pt}f\ c{\isacharcomma}{\kern0pt}\ g\ c{\isacharparenright}{\kern0pt}{\isacharparenright}{\kern0pt}{\isacharparenright}{\kern0pt}\ {\isacharquery}{\kern0pt}fin{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}\ \isanewline
+\ \ \ \ \isacommand{using}\isamarkupfalse%
+\ wf{\isacharunderscore}{\kern0pt}prod{\isacharunderscore}{\kern0pt}lex{\isacharunderscore}{\kern0pt}fibers{\isacharunderscore}{\kern0pt}inter{\isacharbrackleft}{\kern0pt}of\ {\isachardoublequoteopen}less{\isacharunderscore}{\kern0pt}than{\isachardoublequoteclose}\ {\isachardoublequoteopen}f{\isachardoublequoteclose}\ {\isachardoublequoteopen}{\isacharquery}{\kern0pt}fin\ {\isasymtimes}\ {\isacharquery}{\kern0pt}fin{\isachardoublequoteclose}\ {\isachardoublequoteopen}s{\isachardoublequoteclose}\ {\isachardoublequoteopen}g{\isachardoublequoteclose}{\isacharbrackright}{\kern0pt}\ measure{\isacharunderscore}{\kern0pt}def\isanewline
+\ \ \ \ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}{\kern0pt}metis\ {\isacharparenleft}{\kern0pt}no{\isacharunderscore}{\kern0pt}types{\isacharcomma}{\kern0pt}\ lifting{\isacharparenright}{\kern0pt}\ inf{\isacharunderscore}{\kern0pt}sup{\isacharunderscore}{\kern0pt}aci{\isacharparenleft}{\kern0pt}{\isadigit{1}}{\isacharparenright}{\kern0pt}{\isacharparenright}{\kern0pt}\isanewline
+\ \ \isacommand{moreover}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}{\isacharparenleft}{\kern0pt}inv{\isacharunderscore}{\kern0pt}image\ {\isacharparenleft}{\kern0pt}less{\isacharunderscore}{\kern0pt}than\ {\isacharless}{\kern0pt}{\isacharasterisk}{\kern0pt}lex{\isacharasterisk}{\kern0pt}{\isachargreater}{\kern0pt}\ s{\isacharparenright}{\kern0pt}\ {\isacharparenleft}{\kern0pt}{\isasymlambda}\ c{\isachardot}{\kern0pt}\ {\isacharparenleft}{\kern0pt}f\ c{\isacharcomma}{\kern0pt}\ g\ c{\isacharparenright}{\kern0pt}{\isacharparenright}{\kern0pt}{\isacharparenright}{\kern0pt}\ {\isacharequal}{\kern0pt}\ devos{\isacharunderscore}{\kern0pt}rel{\isachardoublequoteclose}\isanewline
+\ \ \ \ \isacommand{using}\isamarkupfalse%
+\ s{\isacharunderscore}{\kern0pt}def\ f{\isacharunderscore}{\kern0pt}def\ g{\isacharunderscore}{\kern0pt}def\ devos{\isacharunderscore}{\kern0pt}rel{\isacharunderscore}{\kern0pt}def\ mlex{\isacharunderscore}{\kern0pt}prod{\isacharunderscore}{\kern0pt}def\ \isacommand{by}\isamarkupfalse%
+\ fastforce\isanewline
+\ \ \isacommand{ultimately}\isamarkupfalse%
+\ \isacommand{show}\isamarkupfalse%
+\ {\isacharquery}{\kern0pt}thesis\ \isacommand{by}\isamarkupfalse%
+\ simp\isanewline
+\isacommand{qed}\isamarkupfalse%
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsection{$p(G)$ -- the order of the smallest nontrivial finite subgroup of a group : definition and lemmas%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+\isacommand{definition}\isamarkupfalse%
+\ p\ \isakeyword{where}\ {\isachardoublequoteopen}p\ {\isacharequal}{\kern0pt}\ Inf\ {\isacharparenleft}{\kern0pt}card\ {\isacharbackquote}{\kern0pt}\ {\isacharbraceleft}{\kern0pt}H{\isachardot}{\kern0pt}\ subgroup\ H\ G\ {\isacharparenleft}{\kern0pt}{\isasymcdot}{\isacharparenright}{\kern0pt}\ {\isasymone}\ {\isasymand}\ finite\ H\ {\isasymand}\ H\ {\isasymnoteq}\ {\isacharbraceleft}{\kern0pt}{\isasymone}{\isacharbraceright}{\kern0pt}{\isacharbraceright}{\kern0pt}{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}\isanewline
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ subgroup{\isacharunderscore}{\kern0pt}finite{\isacharunderscore}{\kern0pt}ge{\isacharcolon}{\kern0pt}\isanewline
+\ \ \isakeyword{assumes}\ {\isachardoublequoteopen}subgroup\ H\ G\ {\isacharparenleft}{\kern0pt}{\isasymcdot}{\isacharparenright}{\kern0pt}\ {\isasymone}{\isachardoublequoteclose}\ \isakeyword{and}\ {\isachardoublequoteopen}H\ {\isasymnoteq}\ {\isacharbraceleft}{\kern0pt}{\isasymone}{\isacharbraceright}{\kern0pt}{\isachardoublequoteclose}\ \isakeyword{and}\ {\isachardoublequoteopen}finite\ H{\isachardoublequoteclose}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}card\ H\ {\isasymge}\ p{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{using}\isamarkupfalse%
+\ p{\isacharunderscore}{\kern0pt}def\ assms\ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}{\kern0pt}simp\ add{\isacharcolon}{\kern0pt}\ wellorder{\isacharunderscore}{\kern0pt}Inf{\isacharunderscore}{\kern0pt}le{\isadigit{1}}{\isacharparenright}{\kern0pt}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ subgroup{\isacharunderscore}{\kern0pt}infinite{\isacharunderscore}{\kern0pt}or{\isacharunderscore}{\kern0pt}ge{\isacharcolon}{\kern0pt}\isanewline
+\ \ \isakeyword{assumes}\ {\isachardoublequoteopen}subgroup\ H\ G\ {\isacharparenleft}{\kern0pt}{\isasymcdot}{\isacharparenright}{\kern0pt}\ {\isasymone}{\isachardoublequoteclose}\ \isakeyword{and}\ {\isachardoublequoteopen}H\ {\isasymnoteq}\ {\isacharbraceleft}{\kern0pt}{\isasymone}{\isacharbraceright}{\kern0pt}{\isachardoublequoteclose}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}infinite\ H\ {\isasymor}\ card\ H\ {\isasymge}\ p{\isachardoublequoteclose}%
+\isadelimproof
+\ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{using}\isamarkupfalse%
+\ subgroup{\isacharunderscore}{\kern0pt}finite{\isacharunderscore}{\kern0pt}ge\ assms\ \isacommand{by}\isamarkupfalse%
+\ auto%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+\isanewline
+\isanewline
+\isacommand{end}\isamarkupfalse%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsection{Proof of the Generalized Cauchy--Davenport Theorem for (non-abelian) groups%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\begin{isamarkuptext}%
+Generalized Cauchy--Davenport Theorem for (non-abelian) groups due to Matt DeVos \cite{DeVos2016OnAG}%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{theorem}\isamarkupfalse%
+\ {\isacharparenleft}{\kern0pt}\isakeyword{in}\ group{\isacharparenright}{\kern0pt}\ Generalized{\isacharunderscore}{\kern0pt}Cauchy{\isacharunderscore}{\kern0pt}Davenport{\isacharcolon}{\kern0pt}\isanewline
+\ \ \isakeyword{assumes}\ hAne{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}A\ {\isasymnoteq}\ {\isacharbraceleft}{\kern0pt}{\isacharbraceright}{\kern0pt}{\isachardoublequoteclose}\ \isakeyword{and}\ hBne{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}B\ {\isasymnoteq}\ {\isacharbraceleft}{\kern0pt}{\isacharbraceright}{\kern0pt}{\isachardoublequoteclose}\ \isakeyword{and}\ hAG{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}A\ {\isasymsubseteq}\ G{\isachardoublequoteclose}\ \isakeyword{and}\ hBG{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}B\ {\isasymsubseteq}\ G{\isachardoublequoteclose}\ \isakeyword{and}\isanewline
+\ \ hAfin{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}finite\ A{\isachardoublequoteclose}\ \isakeyword{and}\ hBfin{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}finite\ B{\isachardoublequoteclose}\ \isakeyword{and}\isanewline
+\ \ hsub{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}{\isacharbraceleft}{\kern0pt}H{\isachardot}{\kern0pt}\ subgroup{\isacharunderscore}{\kern0pt}of{\isacharunderscore}{\kern0pt}group\ H\ G\ {\isacharparenleft}{\kern0pt}{\isasymcdot}{\isacharparenright}{\kern0pt}\ {\isasymone}\ {\isasymand}\ finite\ H\ {\isasymand}\ H\ {\isasymnoteq}\ {\isacharbraceleft}{\kern0pt}{\isasymone}{\isacharbraceright}{\kern0pt}{\isacharbraceright}{\kern0pt}\ {\isasymnoteq}\ {\isacharbraceleft}{\kern0pt}{\isacharbraceright}{\kern0pt}{\isachardoublequoteclose}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}card\ {\isacharparenleft}{\kern0pt}A\ {\isasymcdots}\ B{\isacharparenright}{\kern0pt}\ {\isasymge}\ min\ p\ {\isacharparenleft}{\kern0pt}card\ A\ {\isacharplus}{\kern0pt}\ card\ B\ {\isacharminus}{\kern0pt}\ {\isadigit{1}}{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+\isacommand{proof}\isamarkupfalse%
+{\isacharparenleft}{\kern0pt}rule\ ccontr{\isacharparenright}{\kern0pt}\isanewline
+\ \ \isacommand{assume}\isamarkupfalse%
+\ hcontr{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}{\isasymnot}\ min\ p\ {\isacharparenleft}{\kern0pt}card\ A\ {\isacharplus}{\kern0pt}\ card\ B\ {\isacharminus}{\kern0pt}\ {\isadigit{1}}{\isacharparenright}{\kern0pt}\ {\isasymle}\ card\ {\isacharparenleft}{\kern0pt}A\ {\isasymcdots}\ B{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{let}\isamarkupfalse%
+\ {\isacharquery}{\kern0pt}fin\ {\isacharequal}{\kern0pt}\ {\isachardoublequoteopen}{\isacharbraceleft}{\kern0pt}{\isacharparenleft}{\kern0pt}A{\isacharcomma}{\kern0pt}\ B{\isacharparenright}{\kern0pt}{\isachardot}{\kern0pt}\ finite\ A\ {\isasymand}\ A\ {\isasymnoteq}\ {\isacharbraceleft}{\kern0pt}{\isacharbraceright}{\kern0pt}\ {\isasymand}\ A\ {\isasymsubseteq}\ G\ {\isasymand}\ finite\ B\ {\isasymand}\ B\ {\isasymnoteq}\ {\isacharbraceleft}{\kern0pt}{\isacharbraceright}{\kern0pt}\ {\isasymand}\ B\ {\isasymsubseteq}\ G{\isacharbraceright}{\kern0pt}{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{define}\isamarkupfalse%
+\ M\ \isakeyword{where}\ {\isachardoublequoteopen}M\ {\isacharequal}{\kern0pt}\ {\isacharbraceleft}{\kern0pt}{\isacharparenleft}{\kern0pt}A{\isacharcomma}{\kern0pt}\ B{\isacharparenright}{\kern0pt}{\isachardot}{\kern0pt}\ card\ {\isacharparenleft}{\kern0pt}A\ {\isasymcdots}\ B{\isacharparenright}{\kern0pt}\ {\isacharless}{\kern0pt}\ min\ p\ {\isacharparenleft}{\kern0pt}card\ A\ {\isacharplus}{\kern0pt}\ card\ B\ {\isacharminus}{\kern0pt}\ {\isadigit{1}}{\isacharparenright}{\kern0pt}{\isacharbraceright}{\kern0pt}\ {\isasyminter}\ {\isacharquery}{\kern0pt}fin{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{have}\isamarkupfalse%
+\ hmemM{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}{\isacharparenleft}{\kern0pt}A{\isacharcomma}{\kern0pt}\ B{\isacharparenright}{\kern0pt}\ {\isasymin}\ M{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
+\ assms\ hcontr\ M{\isacharunderscore}{\kern0pt}def\ \isacommand{by}\isamarkupfalse%
+\ auto\isanewline
+\ \ \isacommand{then}\isamarkupfalse%
+\ \isacommand{obtain}\isamarkupfalse%
+\ X\ Y\ \isakeyword{where}\ hXYM{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}{\isacharparenleft}{\kern0pt}X{\isacharcomma}{\kern0pt}\ Y{\isacharparenright}{\kern0pt}\ {\isasymin}\ M{\isachardoublequoteclose}\ \isakeyword{and}\ hmin{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}{\isasymAnd}Z{\isachardot}{\kern0pt}\ Z\ {\isasymin}\ M\ {\isasymLongrightarrow}\ {\isacharparenleft}{\kern0pt}Z{\isacharcomma}{\kern0pt}\ {\isacharparenleft}{\kern0pt}X{\isacharcomma}{\kern0pt}\ Y{\isacharparenright}{\kern0pt}{\isacharparenright}{\kern0pt}\ {\isasymnotin}\ Restr\ devos{\isacharunderscore}{\kern0pt}rel\ {\isacharquery}{\kern0pt}fin{\isachardoublequoteclose}\ \isanewline
+\ \ \ \ \isacommand{using}\isamarkupfalse%
+\ devos{\isacharunderscore}{\kern0pt}rel{\isacharunderscore}{\kern0pt}wf\ wfE{\isacharunderscore}{\kern0pt}min\ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}{\kern0pt}smt\ {\isacharparenleft}{\kern0pt}verit{\isacharcomma}{\kern0pt}\ del{\isacharunderscore}{\kern0pt}insts{\isacharparenright}{\kern0pt}\ old{\isachardot}{\kern0pt}prod{\isachardot}{\kern0pt}exhaust{\isacharparenright}{\kern0pt}\isanewline
+\ \ \isacommand{have}\isamarkupfalse%
+\ hXG{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}X\ {\isasymsubseteq}\ G{\isachardoublequoteclose}\ \isakeyword{and}\ hYG{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}Y\ {\isasymsubseteq}\ G{\isachardoublequoteclose}\ \isakeyword{and}\ hXfin{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}finite\ X{\isachardoublequoteclose}\ \isakeyword{and}\ hYfin{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}finite\ Y{\isachardoublequoteclose}\ \isakeyword{and}\ \isanewline
+\ \ \ \ hXYlt{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}card\ {\isacharparenleft}{\kern0pt}X\ {\isasymcdots}\ Y{\isacharparenright}{\kern0pt}\ {\isacharless}{\kern0pt}\ min\ p\ {\isacharparenleft}{\kern0pt}card\ X\ {\isacharplus}{\kern0pt}\ card\ Y\ {\isacharminus}{\kern0pt}\ {\isadigit{1}}{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
+\ hXYM\ M{\isacharunderscore}{\kern0pt}def\ \isacommand{by}\isamarkupfalse%
+\ auto\isanewline
+\ \ \isacommand{have}\isamarkupfalse%
+\ hXY{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}card\ X\ {\isasymle}\ card\ Y{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{proof}\isamarkupfalse%
+{\isacharparenleft}{\kern0pt}rule\ ccontr{\isacharparenright}{\kern0pt}\isanewline
+\ \ \ \ \isacommand{assume}\isamarkupfalse%
+\ hcontr{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}{\isasymnot}\ card\ X\ {\isasymle}\ card\ Y{\isachardoublequoteclose}\isanewline
+\ \ \ \ \isacommand{have}\isamarkupfalse%
+\ hinvinj{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}inj{\isacharunderscore}{\kern0pt}on\ inverse\ G{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
+\ inj{\isacharunderscore}{\kern0pt}onI\ invertible\ invertible{\isacharunderscore}{\kern0pt}inverse{\isacharunderscore}{\kern0pt}inverse\ \isacommand{by}\isamarkupfalse%
+\ metis\isanewline
+\ \ \ \ \isacommand{let}\isamarkupfalse%
+\ {\isacharquery}{\kern0pt}M\ {\isacharequal}{\kern0pt}\ {\isachardoublequoteopen}inverse\ {\isacharbackquote}{\kern0pt}\ X{\isachardoublequoteclose}\isanewline
+\ \ \ \ \isacommand{let}\isamarkupfalse%
+\ {\isacharquery}{\kern0pt}N\ {\isacharequal}{\kern0pt}\ {\isachardoublequoteopen}inverse\ {\isacharbackquote}{\kern0pt}\ Y{\isachardoublequoteclose}\isanewline
+\ \ \ \ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}{\isacharquery}{\kern0pt}N\ {\isasymcdots}\ {\isacharquery}{\kern0pt}M\ {\isacharequal}{\kern0pt}\ inverse\ {\isacharbackquote}{\kern0pt}\ {\isacharparenleft}{\kern0pt}X\ {\isasymcdots}\ Y{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
+\ set{\isacharunderscore}{\kern0pt}inverse{\isacharunderscore}{\kern0pt}composition{\isacharunderscore}{\kern0pt}commute\ hXYM\ M{\isacharunderscore}{\kern0pt}def\ \isacommand{by}\isamarkupfalse%
+\ auto\isanewline
+\ \ \ \ \isacommand{then}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ hNM{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}card\ {\isacharparenleft}{\kern0pt}{\isacharquery}{\kern0pt}N\ {\isasymcdots}\ {\isacharquery}{\kern0pt}M{\isacharparenright}{\kern0pt}\ {\isacharequal}{\kern0pt}\ card\ {\isacharparenleft}{\kern0pt}X\ {\isasymcdots}\ Y{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}\ \isanewline
+\ \ \ \ \ \ \isacommand{using}\isamarkupfalse%
+\ hinvinj\ card{\isacharunderscore}{\kern0pt}image\ subset{\isacharunderscore}{\kern0pt}inj{\isacharunderscore}{\kern0pt}on\ smul{\isacharunderscore}{\kern0pt}subset{\isacharunderscore}{\kern0pt}carrier\ \isacommand{by}\isamarkupfalse%
+\ metis\isanewline
+\ \ \ \ \isacommand{moreover}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ hM{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}card\ {\isacharquery}{\kern0pt}M\ {\isacharequal}{\kern0pt}\ card\ X{\isachardoublequoteclose}\isanewline
+\ \ \ \ \ \ \isacommand{using}\isamarkupfalse%
+\ hinvinj\ hXG\ hYG\ card{\isacharunderscore}{\kern0pt}image\ subset{\isacharunderscore}{\kern0pt}inj{\isacharunderscore}{\kern0pt}on\ \isacommand{by}\isamarkupfalse%
+\ metis\isanewline
+\ \ \ \ \isacommand{moreover}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ hN{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}card\ {\isacharquery}{\kern0pt}N\ {\isacharequal}{\kern0pt}\ card\ Y{\isachardoublequoteclose}\ \isanewline
+\ \ \ \ \ \ \isacommand{using}\isamarkupfalse%
+\ hinvinj\ hYG\ card{\isacharunderscore}{\kern0pt}image\ subset{\isacharunderscore}{\kern0pt}inj{\isacharunderscore}{\kern0pt}on\ \isacommand{by}\isamarkupfalse%
+\ metis\isanewline
+\ \ \ \ \isacommand{moreover}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ hNplusM{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}card\ {\isacharquery}{\kern0pt}N\ {\isacharplus}{\kern0pt}\ card\ {\isacharquery}{\kern0pt}M\ {\isacharequal}{\kern0pt}\ card\ X\ {\isacharplus}{\kern0pt}\ card\ Y{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
+\ hM\ hN\ \isacommand{by}\isamarkupfalse%
+\ auto\isanewline
+\ \ \ \ \isacommand{ultimately}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}card\ {\isacharparenleft}{\kern0pt}{\isacharquery}{\kern0pt}N\ {\isasymcdots}\ {\isacharquery}{\kern0pt}M{\isacharparenright}{\kern0pt}\ {\isacharless}{\kern0pt}\ min\ p\ {\isacharparenleft}{\kern0pt}card\ {\isacharquery}{\kern0pt}N\ {\isacharplus}{\kern0pt}\ card\ {\isacharquery}{\kern0pt}M\ {\isacharminus}{\kern0pt}\ {\isadigit{1}}{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}\ \isanewline
+\ \ \ \ \ \ \isacommand{using}\isamarkupfalse%
+\ hXYM\ M{\isacharunderscore}{\kern0pt}def\ \isacommand{by}\isamarkupfalse%
+\ auto\isanewline
+\ \ \ \ \isacommand{then}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}{\isacharparenleft}{\kern0pt}{\isacharquery}{\kern0pt}N{\isacharcomma}{\kern0pt}\ {\isacharquery}{\kern0pt}M{\isacharparenright}{\kern0pt}\ {\isasymin}\ M{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
+\ M{\isacharunderscore}{\kern0pt}def\ hXYM\ \isacommand{by}\isamarkupfalse%
+\ blast\isanewline
+\ \ \ \ \isacommand{then}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}{\isacharparenleft}{\kern0pt}{\isacharparenleft}{\kern0pt}{\isacharquery}{\kern0pt}N{\isacharcomma}{\kern0pt}\ {\isacharquery}{\kern0pt}M{\isacharparenright}{\kern0pt}{\isacharcomma}{\kern0pt}\ {\isacharparenleft}{\kern0pt}X{\isacharcomma}{\kern0pt}\ Y{\isacharparenright}{\kern0pt}{\isacharparenright}{\kern0pt}\ {\isasymnotin}\ devos{\isacharunderscore}{\kern0pt}rel{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
+\ hmin\ hXYM\ M{\isacharunderscore}{\kern0pt}def\ \isacommand{by}\isamarkupfalse%
+\ blast\isanewline
+\ \ \ \ \isacommand{then}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}{\isasymnot}\ card\ Y\ {\isacharless}{\kern0pt}\ card\ X{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
+\ hN\ \ hNM\ hNplusM\ devos{\isacharunderscore}{\kern0pt}rel{\isacharunderscore}{\kern0pt}iff\ \isacommand{by}\isamarkupfalse%
+\ simp\isanewline
+\ \ \ \ \isacommand{then}\isamarkupfalse%
+\ \isacommand{show}\isamarkupfalse%
+\ False\ \isacommand{using}\isamarkupfalse%
+\ hcontr\ \isacommand{by}\isamarkupfalse%
+\ linarith\isanewline
+\ \ \isacommand{qed}\isamarkupfalse%
+\isanewline
+\ \ \isacommand{have}\isamarkupfalse%
+\ hX{\isadigit{2}}{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}{\isadigit{2}}\ {\isasymle}\ card\ X{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{proof}\isamarkupfalse%
+{\isacharparenleft}{\kern0pt}rule\ ccontr{\isacharparenright}{\kern0pt}\isanewline
+\ \ \ \ \isacommand{assume}\isamarkupfalse%
+\ {\isachardoublequoteopen}\ {\isasymnot}\ {\isadigit{2}}\ {\isasymle}\ card\ X{\isachardoublequoteclose}\isanewline
+\ \ \ \ \isacommand{moreover}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}card\ X\ {\isachargreater}{\kern0pt}\ {\isadigit{0}}{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
+\ hXYM\ M{\isacharunderscore}{\kern0pt}def\ card{\isacharunderscore}{\kern0pt}gt{\isacharunderscore}{\kern0pt}{\isadigit{0}}{\isacharunderscore}{\kern0pt}iff\ \isacommand{by}\isamarkupfalse%
+\ blast\isanewline
+\ \ \ \ \isacommand{ultimately}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ hX{\isadigit{1}}{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}card\ X\ {\isacharequal}{\kern0pt}\ {\isadigit{1}}{\isachardoublequoteclose}\ \isacommand{by}\isamarkupfalse%
+\ auto\isanewline
+\ \ \ \ \isacommand{then}\isamarkupfalse%
+\ \isacommand{obtain}\isamarkupfalse%
+\ x\ \isakeyword{where}\ {\isachardoublequoteopen}X\ {\isacharequal}{\kern0pt}\ {\isacharbraceleft}{\kern0pt}x{\isacharbraceright}{\kern0pt}{\isachardoublequoteclose}\ \isakeyword{and}\ {\isachardoublequoteopen}x\ {\isasymin}\ G{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
+\ hXG\ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}{\kern0pt}metis\ card{\isacharunderscore}{\kern0pt}{\isadigit{1}}{\isacharunderscore}{\kern0pt}singletonE\ insert{\isacharunderscore}{\kern0pt}subset{\isacharparenright}{\kern0pt}\isanewline
+\ \ \ \ \isacommand{then}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}card\ {\isacharparenleft}{\kern0pt}X\ {\isasymcdots}\ Y{\isacharparenright}{\kern0pt}\ {\isacharequal}{\kern0pt}\ card\ X\ {\isacharplus}{\kern0pt}\ card\ Y\ {\isacharminus}{\kern0pt}\ {\isadigit{1}}{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
+\ card{\isacharunderscore}{\kern0pt}smul{\isacharunderscore}{\kern0pt}singleton{\isacharunderscore}{\kern0pt}left{\isacharunderscore}{\kern0pt}eq\ hYG\ hXYM\ M{\isacharunderscore}{\kern0pt}def\isanewline
+\ \ \ \ \ \ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}{\kern0pt}simp\ add{\isacharcolon}{\kern0pt}\ Int{\isacharunderscore}{\kern0pt}absorb{\isadigit{2}}{\isacharparenright}{\kern0pt}\isanewline
+\ \ \ \ \isacommand{then}\isamarkupfalse%
+\ \isacommand{show}\isamarkupfalse%
+\ False\ \isacommand{using}\isamarkupfalse%
+\ hXYlt\ \isacommand{by}\isamarkupfalse%
+\ linarith\isanewline
+\ \ \isacommand{qed}\isamarkupfalse%
+\isanewline
+\ \ \isacommand{then}\isamarkupfalse%
+\ \isacommand{obtain}\isamarkupfalse%
+\ a\ b\ \isakeyword{where}\ habX{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}{\isacharbraceleft}{\kern0pt}a{\isacharcomma}{\kern0pt}\ b{\isacharbraceright}{\kern0pt}\ {\isasymsubseteq}\ X{\isachardoublequoteclose}\ \isakeyword{and}\ habne{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}a\ {\isasymnoteq}\ b{\isachardoublequoteclose}\ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}{\kern0pt}metis\ card{\isacharunderscore}{\kern0pt}{\isadigit{2}}{\isacharunderscore}{\kern0pt}iff\ obtain{\isacharunderscore}{\kern0pt}subset{\isacharunderscore}{\kern0pt}with{\isacharunderscore}{\kern0pt}card{\isacharunderscore}{\kern0pt}n{\isacharparenright}{\kern0pt}\isanewline
+\ \ \isacommand{moreover}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}b\ {\isasymin}\ X\ {\isasymcdots}\ {\isacharbraceleft}{\kern0pt}inverse\ a\ {\isasymcdot}\ b{\isacharbraceright}{\kern0pt}{\isachardoublequoteclose}\ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}{\kern0pt}smt\ {\isacharparenleft}{\kern0pt}verit{\isacharparenright}{\kern0pt}\ habX\ composition{\isacharunderscore}{\kern0pt}closed\ hXG\ insert{\isacharunderscore}{\kern0pt}subset\ \isanewline
+\ \ \ \ invertible\ invertible{\isacharunderscore}{\kern0pt}inverse{\isacharunderscore}{\kern0pt}closed\ invertible{\isacharunderscore}{\kern0pt}right{\isacharunderscore}{\kern0pt}inverse{\isadigit{2}}\ singletonI\ smul{\isachardot}{\kern0pt}smulI\ subsetD{\isacharparenright}{\kern0pt}\isanewline
+\ \ \isacommand{then}\isamarkupfalse%
+\ \isacommand{obtain}\isamarkupfalse%
+\ g\ \isakeyword{where}\ hgG{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}g\ {\isasymin}\ G{\isachardoublequoteclose}\ \isakeyword{and}\ hg{\isadigit{1}}{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}g\ {\isasymnoteq}\ {\isasymone}{\isachardoublequoteclose}\ \isakeyword{and}\ hXgne{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}{\isacharparenleft}{\kern0pt}X\ {\isasymcdots}\ {\isacharbraceleft}{\kern0pt}g{\isacharbraceright}{\kern0pt}{\isacharparenright}{\kern0pt}\ {\isasyminter}\ X\ {\isasymnoteq}\ {\isacharbraceleft}{\kern0pt}{\isacharbraceright}{\kern0pt}{\isachardoublequoteclose}\ \isanewline
+\ \ \ \ \isacommand{using}\isamarkupfalse%
+\ habne\ habX\ hXG\ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}{\kern0pt}metis\ composition{\isacharunderscore}{\kern0pt}closed\ insert{\isacharunderscore}{\kern0pt}disjoint{\isacharparenleft}{\kern0pt}{\isadigit{2}}{\isacharparenright}{\kern0pt}\ insert{\isacharunderscore}{\kern0pt}subset\ invertible\ \isanewline
+\ \ \ \ \ \ invertible{\isacharunderscore}{\kern0pt}inverse{\isacharunderscore}{\kern0pt}closed\ invertible{\isacharunderscore}{\kern0pt}right{\isacharunderscore}{\kern0pt}inverse{\isadigit{2}}\ mk{\isacharunderscore}{\kern0pt}disjoint{\isacharunderscore}{\kern0pt}insert\ right{\isacharunderscore}{\kern0pt}unit{\isacharparenright}{\kern0pt}\isanewline
+\ \ \isacommand{have}\isamarkupfalse%
+\ hpsubX{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}{\isacharparenleft}{\kern0pt}X\ {\isasymcdots}\ {\isacharbraceleft}{\kern0pt}g{\isacharbraceright}{\kern0pt}{\isacharparenright}{\kern0pt}\ {\isasyminter}\ X\ {\isasymsubset}\ X{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{proof}\isamarkupfalse%
+{\isacharparenleft}{\kern0pt}rule\ ccontr{\isacharparenright}{\kern0pt}\isanewline
+\ \ \ \ \isacommand{assume}\isamarkupfalse%
+\ {\isachardoublequoteopen}{\isasymnot}\ {\isacharparenleft}{\kern0pt}X\ {\isasymcdots}\ {\isacharbraceleft}{\kern0pt}g{\isacharbraceright}{\kern0pt}{\isacharparenright}{\kern0pt}\ {\isasyminter}\ X\ {\isasymsubset}\ X{\isachardoublequoteclose}\isanewline
+\ \ \ \ \isacommand{then}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ hXsub{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}X\ {\isasymsubseteq}\ X\ {\isasymcdots}\ {\isacharbraceleft}{\kern0pt}g{\isacharbraceright}{\kern0pt}{\isachardoublequoteclose}\ \isacommand{by}\isamarkupfalse%
+\ auto\isanewline
+\ \ \ \ \isacommand{then}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}card\ X\ {\isasymcdots}\ {\isacharbraceleft}{\kern0pt}g{\isacharbraceright}{\kern0pt}\ {\isacharequal}{\kern0pt}\ card\ X{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
+\ card{\isacharunderscore}{\kern0pt}smul{\isacharunderscore}{\kern0pt}sing{\isacharunderscore}{\kern0pt}right{\isacharunderscore}{\kern0pt}le\ hXYM\ M{\isacharunderscore}{\kern0pt}def\isanewline
+\ \ \ \ \ \ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}{\kern0pt}metis\ Int{\isacharunderscore}{\kern0pt}absorb{\isadigit{2}}\ {\isacartoucheopen}g\ {\isasymin}\ G{\isacartoucheclose}\ card{\isachardot}{\kern0pt}infinite\ card{\isacharunderscore}{\kern0pt}smul{\isacharunderscore}{\kern0pt}singleton{\isacharunderscore}{\kern0pt}right{\isacharunderscore}{\kern0pt}eq\ finite{\isacharunderscore}{\kern0pt}Int\ hXG{\isacharparenright}{\kern0pt}\isanewline
+\ \ \ \ \isacommand{moreover}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ hXfin{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}finite\ X{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
+\ hXYM\ M{\isacharunderscore}{\kern0pt}def\ \isacommand{by}\isamarkupfalse%
+\ auto\isanewline
+\ \ \ \ \isacommand{ultimately}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}X\ {\isasymcdots}\ {\isacharbraceleft}{\kern0pt}g{\isacharbraceright}{\kern0pt}\ {\isacharequal}{\kern0pt}\ X{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
+\ hXsub\ \isanewline
+\ \ \ \ \ \ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}{\kern0pt}metis\ card{\isacharunderscore}{\kern0pt}subset{\isacharunderscore}{\kern0pt}eq\ finite{\isachardot}{\kern0pt}emptyI\ finite{\isachardot}{\kern0pt}insertI\ finite{\isacharunderscore}{\kern0pt}smul{\isacharparenright}{\kern0pt}\isanewline
+\ \ \ \ \isacommand{then}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ hXpow{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}X\ {\isasymcdots}\ {\isacharparenleft}{\kern0pt}powers\ g{\isacharparenright}{\kern0pt}\ {\isacharequal}{\kern0pt}\ X{\isachardoublequoteclose}\ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}{\kern0pt}simp\ add{\isacharcolon}{\kern0pt}\ hXG\ hgG\ smul{\isacharunderscore}{\kern0pt}singleton{\isacharunderscore}{\kern0pt}eq{\isacharunderscore}{\kern0pt}contains{\isacharunderscore}{\kern0pt}powers{\isacharparenright}{\kern0pt}\isanewline
+\ \ \ \ \isacommand{moreover}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ hfinpowers{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}finite\ {\isacharparenleft}{\kern0pt}powers\ g{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}\isanewline
+\ \ \ \ \isacommand{proof}\isamarkupfalse%
+{\isacharparenleft}{\kern0pt}rule\ ccontr{\isacharparenright}{\kern0pt}\isanewline
+\ \ \ \ \ \ \isacommand{assume}\isamarkupfalse%
+\ {\isachardoublequoteopen}infinite\ {\isacharparenleft}{\kern0pt}powers\ g{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}\isanewline
+\ \ \ \ \ \ \isacommand{then}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}infinite\ X{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
+\ hXG\ hX{\isadigit{2}}\ hXpow\ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}{\kern0pt}metis\ Int{\isacharunderscore}{\kern0pt}absorb{\isadigit{1}}\ hXgne\ hXsub\ hgG\ \isanewline
+\ \ \ \ \ \ \ \ infinite{\isacharunderscore}{\kern0pt}smul{\isacharunderscore}{\kern0pt}right\ invertible\ le{\isacharunderscore}{\kern0pt}iff{\isacharunderscore}{\kern0pt}inf\ powers{\isacharunderscore}{\kern0pt}submonoid\ submonoid{\isachardot}{\kern0pt}subset{\isacharparenright}{\kern0pt}\isanewline
+\ \ \ \ \ \ \isacommand{then}\isamarkupfalse%
+\ \isacommand{show}\isamarkupfalse%
+\ False\ \isacommand{using}\isamarkupfalse%
+\ hXYM\ M{\isacharunderscore}{\kern0pt}def\ \isacommand{by}\isamarkupfalse%
+\ auto\isanewline
+\ \ \ \ \isacommand{qed}\isamarkupfalse%
+\isanewline
+\ \ \ \ \isacommand{ultimately}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}card\ {\isacharparenleft}{\kern0pt}powers\ g{\isacharparenright}{\kern0pt}\ {\isasymle}\ card\ X{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
+\ card{\isacharunderscore}{\kern0pt}le{\isacharunderscore}{\kern0pt}smul{\isacharunderscore}{\kern0pt}right\ \isanewline
+\ \ \ \ \ \ powers{\isacharunderscore}{\kern0pt}submonoid\ submonoid{\isachardot}{\kern0pt}subset\ hXYM\ M{\isacharunderscore}{\kern0pt}def\ habX\ hXG\ \isanewline
+\ \ \ \ \ \ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}{\kern0pt}metis\ {\isacharparenleft}{\kern0pt}no{\isacharunderscore}{\kern0pt}types{\isacharcomma}{\kern0pt}\ lifting{\isacharparenright}{\kern0pt}\ hXfin\ hgG\ insert{\isacharunderscore}{\kern0pt}subset\ invertible\ subsetD{\isacharparenright}{\kern0pt}\isanewline
+\ \ \ \ \isacommand{then}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}p\ {\isasymle}\ card\ X{\isachardoublequoteclose}\ \isanewline
+\ \ \ \ \ \ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}{\kern0pt}meson\ hfinpowers\ hg{\isadigit{1}}\ hgG\ le{\isacharunderscore}{\kern0pt}trans\ powers{\isacharunderscore}{\kern0pt}ne{\isacharunderscore}{\kern0pt}one\ powers{\isacharunderscore}{\kern0pt}subgroup\ subgroup{\isacharunderscore}{\kern0pt}infinite{\isacharunderscore}{\kern0pt}or{\isacharunderscore}{\kern0pt}ge{\isacharparenright}{\kern0pt}\isanewline
+\ \ \ \ \isacommand{then}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}p\ {\isasymle}\ card\ {\isacharparenleft}{\kern0pt}X\ {\isasymcdots}\ Y{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
+\ card{\isacharunderscore}{\kern0pt}le{\isacharunderscore}{\kern0pt}smul{\isacharunderscore}{\kern0pt}left\ hXYM\ M{\isacharunderscore}{\kern0pt}def\ \isanewline
+\ \ \ \ \ \ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}{\kern0pt}metis\ {\isacharparenleft}{\kern0pt}full{\isacharunderscore}{\kern0pt}types{\isacharparenright}{\kern0pt}\ {\isacartoucheopen}b\ {\isasymin}\ smul\ X\ {\isacharbraceleft}{\kern0pt}inverse\ a\ {\isasymcdot}\ b{\isacharbraceright}{\kern0pt}{\isacartoucheclose}\ bot{\isacharunderscore}{\kern0pt}nat{\isacharunderscore}{\kern0pt}{\isadigit{0}}{\isachardot}{\kern0pt}extremum{\isacharunderscore}{\kern0pt}uniqueI\ card{\isachardot}{\kern0pt}infinite\ \isanewline
+\ \ \ \ \ \ \ \ \ \ card{\isacharunderscore}{\kern0pt}{\isadigit{0}}{\isacharunderscore}{\kern0pt}eq\ card{\isacharunderscore}{\kern0pt}le{\isacharunderscore}{\kern0pt}smul{\isacharunderscore}{\kern0pt}right\ empty{\isacharunderscore}{\kern0pt}iff\ hXY\ hXfin\ hYG\ le{\isacharunderscore}{\kern0pt}trans\ smul{\isachardot}{\kern0pt}cases{\isacharparenright}{\kern0pt}\isanewline
+\ \ \ \ \isacommand{then}\isamarkupfalse%
+\ \isacommand{show}\isamarkupfalse%
+\ False\ \isacommand{using}\isamarkupfalse%
+\ hXYlt\ \isacommand{by}\isamarkupfalse%
+\ auto\isanewline
+\ \ \isacommand{qed}\isamarkupfalse%
+\isanewline
+\ \ \isacommand{let}\isamarkupfalse%
+\ {\isacharquery}{\kern0pt}X{\isadigit{1}}\ {\isacharequal}{\kern0pt}\ {\isachardoublequoteopen}{\isacharparenleft}{\kern0pt}X\ {\isasymcdots}\ {\isacharbraceleft}{\kern0pt}g{\isacharbraceright}{\kern0pt}{\isacharparenright}{\kern0pt}\ {\isasyminter}\ X{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{let}\isamarkupfalse%
+\ {\isacharquery}{\kern0pt}X{\isadigit{2}}\ {\isacharequal}{\kern0pt}\ {\isachardoublequoteopen}{\isacharparenleft}{\kern0pt}X\ {\isasymcdots}\ {\isacharbraceleft}{\kern0pt}g{\isacharbraceright}{\kern0pt}{\isacharparenright}{\kern0pt}\ {\isasymunion}\ X{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{let}\isamarkupfalse%
+\ {\isacharquery}{\kern0pt}Y{\isadigit{1}}\ {\isacharequal}{\kern0pt}\ {\isachardoublequoteopen}{\isacharparenleft}{\kern0pt}{\isacharbraceleft}{\kern0pt}inverse\ g{\isacharbraceright}{\kern0pt}\ {\isasymcdots}\ Y{\isacharparenright}{\kern0pt}\ {\isasymunion}\ Y{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{let}\isamarkupfalse%
+\ {\isacharquery}{\kern0pt}Y{\isadigit{2}}\ {\isacharequal}{\kern0pt}\ {\isachardoublequoteopen}{\isacharparenleft}{\kern0pt}{\isacharbraceleft}{\kern0pt}inverse\ g{\isacharbraceright}{\kern0pt}\ {\isasymcdots}\ Y{\isacharparenright}{\kern0pt}\ {\isasyminter}\ Y{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{have}\isamarkupfalse%
+\ hY{\isadigit{1}}G{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}{\isacharquery}{\kern0pt}Y{\isadigit{1}}\ {\isasymsubseteq}\ G{\isachardoublequoteclose}\ \isakeyword{and}\ hY{\isadigit{1}}fin{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}finite\ {\isacharquery}{\kern0pt}Y{\isadigit{1}}{\isachardoublequoteclose}\ \isakeyword{and}\ hX{\isadigit{2}}G{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}{\isacharquery}{\kern0pt}X{\isadigit{2}}\ {\isasymsubseteq}\ G{\isachardoublequoteclose}\ \isakeyword{and}\ hX{\isadigit{2}}fin{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}finite\ {\isacharquery}{\kern0pt}X{\isadigit{2}}{\isachardoublequoteclose}\ \isanewline
+\ \ \ \ \isacommand{using}\isamarkupfalse%
+\ hYfin\ hYG\ hXG\ finite{\isacharunderscore}{\kern0pt}smul\ hXfin\ smul{\isacharunderscore}{\kern0pt}subset{\isacharunderscore}{\kern0pt}carrier\ \isacommand{by}\isamarkupfalse%
+\ auto\isanewline
+\ \ \isacommand{have}\isamarkupfalse%
+\ hXY{\isadigit{1}}{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}{\isacharquery}{\kern0pt}X{\isadigit{1}}\ {\isasymcdots}\ {\isacharquery}{\kern0pt}Y{\isadigit{1}}\ {\isasymsubseteq}\ X\ {\isasymcdots}\ Y{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{proof}\isamarkupfalse%
+\isanewline
+\ \ \ \ \isacommand{fix}\isamarkupfalse%
+\ z\ \isacommand{assume}\isamarkupfalse%
+\ {\isachardoublequoteopen}z\ {\isasymin}\ {\isacharquery}{\kern0pt}X{\isadigit{1}}\ {\isasymcdots}\ {\isacharquery}{\kern0pt}Y{\isadigit{1}}{\isachardoublequoteclose}\isanewline
+\ \ \ \ \isacommand{then}\isamarkupfalse%
+\ \isacommand{obtain}\isamarkupfalse%
+\ x\ y\ \isakeyword{where}\ hz{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}z\ {\isacharequal}{\kern0pt}\ x\ {\isasymcdot}\ y{\isachardoublequoteclose}\ \isakeyword{and}\ hx{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}x\ {\isasymin}\ {\isacharquery}{\kern0pt}X{\isadigit{1}}{\isachardoublequoteclose}\ \isakeyword{and}\ hy{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}y\ {\isasymin}\ {\isacharquery}{\kern0pt}Y{\isadigit{1}}{\isachardoublequoteclose}\ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}{\kern0pt}meson\ smul{\isachardot}{\kern0pt}cases{\isacharparenright}{\kern0pt}\isanewline
+\ \ \ \ \isacommand{show}\isamarkupfalse%
+\ {\isachardoublequoteopen}z\ {\isasymin}\ X\ {\isasymcdots}\ Y{\isachardoublequoteclose}\isanewline
+\ \ \ \ \isacommand{proof}\isamarkupfalse%
+{\isacharparenleft}{\kern0pt}cases\ {\isachardoublequoteopen}y\ {\isasymin}\ Y{\isachardoublequoteclose}{\isacharparenright}{\kern0pt}\isanewline
+\ \ \ \ \ \ \isacommand{case}\isamarkupfalse%
+\ True\isanewline
+\ \ \ \ \ \ \isacommand{then}\isamarkupfalse%
+\ \isacommand{show}\isamarkupfalse%
+\ {\isacharquery}{\kern0pt}thesis\ \isacommand{using}\isamarkupfalse%
+\ hz\ hx\ smulI\ hXG\ hYG\ \isacommand{by}\isamarkupfalse%
+\ auto\isanewline
+\ \ \ \ \isacommand{next}\isamarkupfalse%
+\isanewline
+\ \ \ \ \ \ \isacommand{case}\isamarkupfalse%
+\ False\isanewline
+\ \ \ \ \ \ \isacommand{then}\isamarkupfalse%
+\ \isacommand{obtain}\isamarkupfalse%
+\ w\ \isakeyword{where}\ {\isachardoublequoteopen}y\ {\isacharequal}{\kern0pt}\ inverse\ g\ {\isasymcdot}\ \ w{\isachardoublequoteclose}\ \isakeyword{and}\ {\isachardoublequoteopen}w\ {\isasymin}\ Y{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
+\ hy\ smul{\isachardot}{\kern0pt}cases\ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}{\kern0pt}metis\ UnE\ singletonD{\isacharparenright}{\kern0pt}\isanewline
+\ \ \ \ \ \ \isacommand{moreover}\isamarkupfalse%
+\ \isacommand{obtain}\isamarkupfalse%
+\ v\ \isakeyword{where}\ {\isachardoublequoteopen}x\ {\isacharequal}{\kern0pt}\ v\ {\isasymcdot}\ g{\isachardoublequoteclose}\ \isakeyword{and}\ {\isachardoublequoteopen}v\ {\isasymin}\ X{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
+\ hx\ smul{\isachardot}{\kern0pt}cases\ \isacommand{by}\isamarkupfalse%
+\ blast\isanewline
+\ \ \ \ \ \ \isacommand{ultimately}\isamarkupfalse%
+\ \isacommand{show}\isamarkupfalse%
+\ {\isacharquery}{\kern0pt}thesis\ \isacommand{using}\isamarkupfalse%
+\ hz\ hXG\ hYG\ hgG\ associative\ invertible{\isacharunderscore}{\kern0pt}right{\isacharunderscore}{\kern0pt}inverse{\isadigit{2}}\isanewline
+\ \ \ \ \ \ \ \ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}{\kern0pt}simp\ add{\isacharcolon}{\kern0pt}\ smul{\isachardot}{\kern0pt}smulI\ subsetD{\isacharparenright}{\kern0pt}\isanewline
+\ \ \ \ \isacommand{qed}\isamarkupfalse%
+\isanewline
+\ \ \isacommand{qed}\isamarkupfalse%
+\isanewline
+\ \ \isacommand{have}\isamarkupfalse%
+\ hXY{\isadigit{2}}{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}{\isacharquery}{\kern0pt}X{\isadigit{2}}\ {\isasymcdots}\ {\isacharquery}{\kern0pt}Y{\isadigit{2}}\ {\isasymsubseteq}\ X\ {\isasymcdots}\ Y{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{proof}\isamarkupfalse%
+\isanewline
+\ \ \ \ \isacommand{fix}\isamarkupfalse%
+\ z\ \isacommand{assume}\isamarkupfalse%
+\ {\isachardoublequoteopen}z\ {\isasymin}\ {\isacharquery}{\kern0pt}X{\isadigit{2}}\ {\isasymcdots}\ {\isacharquery}{\kern0pt}Y{\isadigit{2}}{\isachardoublequoteclose}\isanewline
+\ \ \ \ \isacommand{then}\isamarkupfalse%
+\ \isacommand{obtain}\isamarkupfalse%
+\ x\ y\ \isakeyword{where}\ hz{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}z\ {\isacharequal}{\kern0pt}\ x\ {\isasymcdot}\ y{\isachardoublequoteclose}\ \isakeyword{and}\ hx{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}x\ {\isasymin}\ {\isacharquery}{\kern0pt}X{\isadigit{2}}{\isachardoublequoteclose}\ \isakeyword{and}\ hy{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}y\ {\isasymin}\ {\isacharquery}{\kern0pt}Y{\isadigit{2}}{\isachardoublequoteclose}\ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}{\kern0pt}meson\ smul{\isachardot}{\kern0pt}cases{\isacharparenright}{\kern0pt}\isanewline
+\ \ \ \ \isacommand{show}\isamarkupfalse%
+\ {\isachardoublequoteopen}z\ {\isasymin}\ X\ {\isasymcdots}\ Y{\isachardoublequoteclose}\isanewline
+\ \ \ \ \isacommand{proof}\isamarkupfalse%
+{\isacharparenleft}{\kern0pt}cases\ {\isachardoublequoteopen}x\ {\isasymin}\ X{\isachardoublequoteclose}{\isacharparenright}{\kern0pt}\isanewline
+\ \ \ \ \ \ \isacommand{case}\isamarkupfalse%
+\ True\isanewline
+\ \ \ \ \ \ \isacommand{then}\isamarkupfalse%
+\ \isacommand{show}\isamarkupfalse%
+\ {\isacharquery}{\kern0pt}thesis\ \isacommand{using}\isamarkupfalse%
+\ hz\ hy\ smulI\ hXG\ hYG\ \isacommand{by}\isamarkupfalse%
+\ auto\isanewline
+\ \ \ \ \isacommand{next}\isamarkupfalse%
+\isanewline
+\ \ \ \ \ \ \isacommand{case}\isamarkupfalse%
+\ False\isanewline
+\ \ \ \ \ \ \isacommand{then}\isamarkupfalse%
+\ \isacommand{obtain}\isamarkupfalse%
+\ v\ \isakeyword{where}\ {\isachardoublequoteopen}x\ {\isacharequal}{\kern0pt}\ v\ {\isasymcdot}\ g{\isachardoublequoteclose}\ \isakeyword{and}\ {\isachardoublequoteopen}v\ {\isasymin}\ X{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
+\ hx\ smul{\isachardot}{\kern0pt}cases\ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}{\kern0pt}metis\ UnE\ singletonD{\isacharparenright}{\kern0pt}\isanewline
+\ \ \ \ \ \ \isacommand{moreover}\isamarkupfalse%
+\ \isacommand{obtain}\isamarkupfalse%
+\ w\ \isakeyword{where}\ {\isachardoublequoteopen}y\ {\isacharequal}{\kern0pt}\ inverse\ g\ {\isasymcdot}\ w{\isachardoublequoteclose}\ \isakeyword{and}\ {\isachardoublequoteopen}w\ {\isasymin}\ Y{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
+\ hy\ smul{\isachardot}{\kern0pt}cases\ \isacommand{by}\isamarkupfalse%
+\ blast\isanewline
+\ \ \ \ \ \ \isacommand{ultimately}\isamarkupfalse%
+\ \isacommand{show}\isamarkupfalse%
+\ {\isacharquery}{\kern0pt}thesis\ \isacommand{using}\isamarkupfalse%
+\ hz\ hXG\ hYG\ hgG\ associative\ invertible{\isacharunderscore}{\kern0pt}right{\isacharunderscore}{\kern0pt}inverse{\isadigit{2}}\isanewline
+\ \ \ \ \ \ \ \ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}{\kern0pt}simp\ add{\isacharcolon}{\kern0pt}\ smul{\isachardot}{\kern0pt}smulI\ subsetD{\isacharparenright}{\kern0pt}\isanewline
+\ \ \ \ \isacommand{qed}\isamarkupfalse%
+\isanewline
+\ \ \isacommand{qed}\isamarkupfalse%
+\isanewline
+\ \ \isacommand{have}\isamarkupfalse%
+\ hY{\isadigit{2}}ne{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}{\isacharquery}{\kern0pt}Y{\isadigit{2}}\ {\isasymnoteq}\ {\isacharbraceleft}{\kern0pt}{\isacharbraceright}{\kern0pt}{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{proof}\isamarkupfalse%
+\isanewline
+\ \ \ \ \isacommand{assume}\isamarkupfalse%
+\ hY{\isadigit{2}}{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}{\isacharquery}{\kern0pt}Y{\isadigit{2}}\ {\isacharequal}{\kern0pt}\ {\isacharbraceleft}{\kern0pt}{\isacharbraceright}{\kern0pt}{\isachardoublequoteclose}\isanewline
+\ \ \ \ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}card\ X\ {\isacharplus}{\kern0pt}\ card\ Y\ {\isasymle}\ card\ Y\ {\isacharplus}{\kern0pt}\ card\ Y{\isachardoublequoteclose}\ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}{\kern0pt}simp\ add{\isacharcolon}{\kern0pt}\ hXY{\isacharparenright}{\kern0pt}\isanewline
+\ \ \ \ \isacommand{also}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}{\isachardot}{\kern0pt}{\isachardot}{\kern0pt}{\isachardot}{\kern0pt}\ {\isacharequal}{\kern0pt}\ card\ {\isacharquery}{\kern0pt}Y{\isadigit{1}}{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
+\ card{\isacharunderscore}{\kern0pt}Un{\isacharunderscore}{\kern0pt}disjoint\ hYfin\ hYG\ hgG\ finite{\isacharunderscore}{\kern0pt}smul\ inf{\isachardot}{\kern0pt}orderE\ invertible\isanewline
+\ \ \ \ \ \ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}{\kern0pt}metis\ hY{\isadigit{2}}\ card{\isacharunderscore}{\kern0pt}smul{\isacharunderscore}{\kern0pt}singleton{\isacharunderscore}{\kern0pt}left{\isacharunderscore}{\kern0pt}eq\ finite{\isachardot}{\kern0pt}emptyI\ finite{\isachardot}{\kern0pt}insertI\ invertible{\isacharunderscore}{\kern0pt}inverse{\isacharunderscore}{\kern0pt}closed{\isacharparenright}{\kern0pt}\isanewline
+\ \ \ \ \isacommand{also}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}{\isachardot}{\kern0pt}{\isachardot}{\kern0pt}{\isachardot}{\kern0pt}\ {\isasymle}\ card\ {\isacharparenleft}{\kern0pt}{\isacharquery}{\kern0pt}X{\isadigit{1}}\ {\isasymcdots}\ {\isacharquery}{\kern0pt}Y{\isadigit{1}}{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
+\ card{\isacharunderscore}{\kern0pt}le{\isacharunderscore}{\kern0pt}smul{\isacharunderscore}{\kern0pt}right{\isacharbrackleft}{\kern0pt}OF\ {\isacharunderscore}{\kern0pt}\ {\isacharunderscore}{\kern0pt}\ {\isacharunderscore}{\kern0pt}\ hY{\isadigit{1}}fin\ hY{\isadigit{1}}G{\isacharbrackright}{\kern0pt}\ \isanewline
+\ \ \ \ \ \ \ \ hXgne\ hXG\ Int{\isacharunderscore}{\kern0pt}assoc\ Int{\isacharunderscore}{\kern0pt}commute\ ex{\isacharunderscore}{\kern0pt}in{\isacharunderscore}{\kern0pt}conv\ finite{\isacharunderscore}{\kern0pt}Int\ hXfin\ smul{\isachardot}{\kern0pt}simps\ smul{\isacharunderscore}{\kern0pt}D{\isacharparenleft}{\kern0pt}{\isadigit{2}}{\isacharparenright}{\kern0pt}\ \isanewline
+\ \ \ \ \ \ \ \ smul{\isacharunderscore}{\kern0pt}Int{\isacharunderscore}{\kern0pt}carrier\ unit{\isacharunderscore}{\kern0pt}closed\ \isacommand{by}\isamarkupfalse%
+\ auto\isanewline
+\ \ \ \ \isacommand{also}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}{\isachardot}{\kern0pt}{\isachardot}{\kern0pt}{\isachardot}{\kern0pt}\ {\isasymle}\ card\ {\isacharparenleft}{\kern0pt}X\ {\isasymcdots}\ Y{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
+\ hXY{\isadigit{1}}\ finite{\isacharunderscore}{\kern0pt}smul\ card{\isacharunderscore}{\kern0pt}mono\ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}{\kern0pt}metis\ hXfin\ hYfin{\isacharparenright}{\kern0pt}\isanewline
+\ \ \ \ \isacommand{finally}\isamarkupfalse%
+\ \isacommand{show}\isamarkupfalse%
+\ False\ \isacommand{using}\isamarkupfalse%
+\ hXYlt\ \isacommand{by}\isamarkupfalse%
+\ linarith\isanewline
+\ \ \isacommand{qed}\isamarkupfalse%
+\isanewline
+\ \ \isacommand{have}\isamarkupfalse%
+\ hXadd{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}card\ {\isacharquery}{\kern0pt}X{\isadigit{1}}\ {\isacharplus}{\kern0pt}\ card\ {\isacharquery}{\kern0pt}X{\isadigit{2}}\ {\isacharequal}{\kern0pt}\ {\isadigit{2}}\ {\isacharasterisk}{\kern0pt}\ card\ X{\isachardoublequoteclose}\ \isanewline
+\ \ \ \ \isacommand{using}\isamarkupfalse%
+\ card{\isacharunderscore}{\kern0pt}smul{\isacharunderscore}{\kern0pt}singleton{\isacharunderscore}{\kern0pt}right{\isacharunderscore}{\kern0pt}eq\ hgG\ hXfin\ hXG\ card{\isacharunderscore}{\kern0pt}Un{\isacharunderscore}{\kern0pt}Int\isanewline
+\ \ \ \ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}{\kern0pt}metis\ Un{\isacharunderscore}{\kern0pt}Int{\isacharunderscore}{\kern0pt}eq{\isacharparenleft}{\kern0pt}{\isadigit{3}}{\isacharparenright}{\kern0pt}\ add{\isachardot}{\kern0pt}commute\ finite{\isachardot}{\kern0pt}emptyI\ finite{\isachardot}{\kern0pt}insertI\ finite{\isacharunderscore}{\kern0pt}smul\ mult{\isacharunderscore}{\kern0pt}{\isadigit{2}}\ subset{\isacharunderscore}{\kern0pt}Un{\isacharunderscore}{\kern0pt}eq{\isacharparenright}{\kern0pt}\isanewline
+\ \ \isacommand{have}\isamarkupfalse%
+\ hYadd{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}card\ {\isacharquery}{\kern0pt}Y{\isadigit{1}}\ {\isacharplus}{\kern0pt}\ card\ {\isacharquery}{\kern0pt}Y{\isadigit{2}}\ {\isacharequal}{\kern0pt}\ {\isadigit{2}}\ {\isacharasterisk}{\kern0pt}\ card\ Y{\isachardoublequoteclose}\isanewline
+\ \ \ \ \isacommand{using}\isamarkupfalse%
+\ card{\isacharunderscore}{\kern0pt}smul{\isacharunderscore}{\kern0pt}singleton{\isacharunderscore}{\kern0pt}left{\isacharunderscore}{\kern0pt}eq\ hgG\ hYfin\ hYG\ card{\isacharunderscore}{\kern0pt}Un{\isacharunderscore}{\kern0pt}Int\ finite{\isacharunderscore}{\kern0pt}smul\isanewline
+\ \ \ \ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}{\kern0pt}metis\ Int{\isacharunderscore}{\kern0pt}lower{\isadigit{1}}\ Un{\isacharunderscore}{\kern0pt}Int{\isacharunderscore}{\kern0pt}eq{\isacharparenleft}{\kern0pt}{\isadigit{3}}{\isacharparenright}{\kern0pt}\ card{\isacharunderscore}{\kern0pt}{\isadigit{0}}{\isacharunderscore}{\kern0pt}eq\ card{\isacharunderscore}{\kern0pt}Un{\isacharunderscore}{\kern0pt}le\ card{\isacharunderscore}{\kern0pt}seteq\ finite{\isachardot}{\kern0pt}emptyI\ finite{\isachardot}{\kern0pt}insertI\ \ \isanewline
+\ \ \ \ \ \ hY{\isadigit{2}}ne\ le{\isacharunderscore}{\kern0pt}add{\isacharunderscore}{\kern0pt}same{\isacharunderscore}{\kern0pt}cancel{\isadigit{1}}\ mult{\isacharunderscore}{\kern0pt}{\isadigit{2}}\ subset{\isacharunderscore}{\kern0pt}Un{\isacharunderscore}{\kern0pt}eq{\isacharparenright}{\kern0pt}\isanewline
+\ \ \isacommand{show}\isamarkupfalse%
+\ False\isanewline
+\ \ \isacommand{proof}\isamarkupfalse%
+\ {\isacharparenleft}{\kern0pt}cases\ {\isachardoublequoteopen}card\ {\isacharquery}{\kern0pt}X{\isadigit{2}}\ {\isacharplus}{\kern0pt}\ card\ {\isacharquery}{\kern0pt}Y{\isadigit{2}}\ {\isachargreater}{\kern0pt}\ card\ X\ {\isacharplus}{\kern0pt}\ card\ Y{\isachardoublequoteclose}{\isacharparenright}{\kern0pt}\isanewline
+\ \ \ \ \isacommand{case}\isamarkupfalse%
+\ h{\isacharcolon}{\kern0pt}\ True\isanewline
+\ \ \ \ \isacommand{have}\isamarkupfalse%
+\ hXY{\isadigit{2}}le{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}card\ {\isacharparenleft}{\kern0pt}{\isacharquery}{\kern0pt}X{\isadigit{2}}\ {\isasymcdots}\ {\isacharquery}{\kern0pt}Y{\isadigit{2}}{\isacharparenright}{\kern0pt}\ {\isasymle}\ card\ {\isacharparenleft}{\kern0pt}X\ {\isasymcdots}\ Y{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
+\ hXY{\isadigit{2}}\ finite{\isacharunderscore}{\kern0pt}smul\ card{\isacharunderscore}{\kern0pt}mono\ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}{\kern0pt}metis\ hXfin\ hYfin{\isacharparenright}{\kern0pt}\isanewline
+\ \ \ \ \isacommand{also}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}{\isachardot}{\kern0pt}{\isachardot}{\kern0pt}{\isachardot}{\kern0pt}\ {\isacharless}{\kern0pt}\ min\ p\ {\isacharparenleft}{\kern0pt}card\ X\ {\isacharplus}{\kern0pt}\ card\ Y\ {\isacharminus}{\kern0pt}\ {\isadigit{1}}{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
+\ hXYlt\ \isacommand{by}\isamarkupfalse%
+\ auto\isanewline
+\ \ \ \ \isacommand{also}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}{\isachardot}{\kern0pt}{\isachardot}{\kern0pt}{\isachardot}{\kern0pt}\ {\isasymle}\ min\ p\ {\isacharparenleft}{\kern0pt}card\ {\isacharquery}{\kern0pt}X{\isadigit{2}}\ {\isacharplus}{\kern0pt}\ card\ {\isacharquery}{\kern0pt}Y{\isadigit{2}}\ {\isacharminus}{\kern0pt}\ {\isadigit{1}}{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
+\ h\ \isacommand{by}\isamarkupfalse%
+\ simp\isanewline
+\ \ \ \ \isacommand{finally}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ hXY{\isadigit{1}}M{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}{\isacharparenleft}{\kern0pt}{\isacharquery}{\kern0pt}X{\isadigit{2}}{\isacharcomma}{\kern0pt}\ {\isacharquery}{\kern0pt}Y{\isadigit{2}}{\isacharparenright}{\kern0pt}\ {\isasymin}\ M{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
+\ M{\isacharunderscore}{\kern0pt}def\ hY{\isadigit{2}}ne\ hX{\isadigit{2}}fin\ hX{\isadigit{2}}G\ hXYM\ \isacommand{by}\isamarkupfalse%
+\ auto\isanewline
+\ \ \ \ \isacommand{moreover}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}{\isacharparenleft}{\kern0pt}{\isacharparenleft}{\kern0pt}{\isacharquery}{\kern0pt}X{\isadigit{2}}{\isacharcomma}{\kern0pt}\ {\isacharquery}{\kern0pt}Y{\isadigit{2}}{\isacharparenright}{\kern0pt}{\isacharcomma}{\kern0pt}\ {\isacharparenleft}{\kern0pt}X{\isacharcomma}{\kern0pt}\ Y{\isacharparenright}{\kern0pt}{\isacharparenright}{\kern0pt}\ {\isasymin}\ \ Restr\ devos{\isacharunderscore}{\kern0pt}rel\ {\isacharquery}{\kern0pt}fin{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
+\ hXYM\ M{\isacharunderscore}{\kern0pt}def\ hXY{\isadigit{1}}M\ h\ hXY{\isadigit{2}}le\ \isanewline
+\ \ \ \ \ \ \ \ devos{\isacharunderscore}{\kern0pt}rel{\isacharunderscore}{\kern0pt}iff\ \isacommand{by}\isamarkupfalse%
+\ auto\isanewline
+\ \ \ \ \isacommand{ultimately}\isamarkupfalse%
+\ \isacommand{show}\isamarkupfalse%
+\ False\ \isacommand{using}\isamarkupfalse%
+\ hmin\ \isacommand{by}\isamarkupfalse%
+\ blast\ \isanewline
+\ \ \isacommand{next}\isamarkupfalse%
+\isanewline
+\ \ \ \ \isacommand{case}\isamarkupfalse%
+\ False\isanewline
+\ \ \ \ \isacommand{then}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ h{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}card\ {\isacharquery}{\kern0pt}X{\isadigit{1}}\ {\isacharplus}{\kern0pt}\ card\ {\isacharquery}{\kern0pt}Y{\isadigit{1}}\ {\isasymge}\ card\ X\ {\isacharplus}{\kern0pt}\ card\ Y{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
+\ hXadd\ hYadd\ \isacommand{by}\isamarkupfalse%
+\ linarith\isanewline
+\ \ \ \ \isacommand{have}\isamarkupfalse%
+\ hX{\isadigit{1}}lt{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}card\ {\isacharquery}{\kern0pt}X{\isadigit{1}}\ {\isacharless}{\kern0pt}\ card\ X{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
+\ hXfin\ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}{\kern0pt}simp\ add{\isacharcolon}{\kern0pt}\ hpsubX\ psubset{\isacharunderscore}{\kern0pt}card{\isacharunderscore}{\kern0pt}mono{\isacharparenright}{\kern0pt}\isanewline
+\ \ \ \ \isacommand{have}\isamarkupfalse%
+\ hXY{\isadigit{1}}le{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}card\ {\isacharparenleft}{\kern0pt}{\isacharquery}{\kern0pt}X{\isadigit{1}}\ {\isasymcdots}\ {\isacharquery}{\kern0pt}Y{\isadigit{1}}{\isacharparenright}{\kern0pt}\ {\isasymle}\ card\ {\isacharparenleft}{\kern0pt}X\ {\isasymcdots}\ Y{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
+\ hXY{\isadigit{1}}\ finite{\isacharunderscore}{\kern0pt}smul\ card{\isacharunderscore}{\kern0pt}mono\ hYfin\ hXfin\ \isacommand{by}\isamarkupfalse%
+\ metis\isanewline
+\ \ \ \ \isacommand{also}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}{\isachardot}{\kern0pt}{\isachardot}{\kern0pt}{\isachardot}{\kern0pt}\ {\isacharless}{\kern0pt}\ min\ p\ {\isacharparenleft}{\kern0pt}card\ X\ {\isacharplus}{\kern0pt}\ card\ Y\ {\isacharminus}{\kern0pt}\ {\isadigit{1}}{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
+\ hXYlt\ \isacommand{by}\isamarkupfalse%
+\ auto\isanewline
+\ \ \ \ \isacommand{also}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}{\isachardot}{\kern0pt}{\isachardot}{\kern0pt}{\isachardot}{\kern0pt}\ {\isasymle}\ min\ p\ {\isacharparenleft}{\kern0pt}card\ {\isacharquery}{\kern0pt}X{\isadigit{1}}\ {\isacharplus}{\kern0pt}\ card\ {\isacharquery}{\kern0pt}Y{\isadigit{1}}\ {\isacharminus}{\kern0pt}\ {\isadigit{1}}{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
+\ h\ \isacommand{by}\isamarkupfalse%
+\ simp\isanewline
+\ \ \ \ \isacommand{finally}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ hXY{\isadigit{1}}M{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}{\isacharparenleft}{\kern0pt}{\isacharquery}{\kern0pt}X{\isadigit{1}}{\isacharcomma}{\kern0pt}\ {\isacharquery}{\kern0pt}Y{\isadigit{1}}{\isacharparenright}{\kern0pt}\ {\isasymin}\ M{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
+\ M{\isacharunderscore}{\kern0pt}def\ hXgne\ hY{\isadigit{1}}fin\ hY{\isadigit{1}}G\ hXYM\ \isacommand{by}\isamarkupfalse%
+\ auto\isanewline
+\ \ \ \ \isacommand{moreover}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}{\isacharparenleft}{\kern0pt}{\isacharparenleft}{\kern0pt}{\isacharquery}{\kern0pt}X{\isadigit{1}}{\isacharcomma}{\kern0pt}\ {\isacharquery}{\kern0pt}Y{\isadigit{1}}{\isacharparenright}{\kern0pt}{\isacharcomma}{\kern0pt}\ {\isacharparenleft}{\kern0pt}X{\isacharcomma}{\kern0pt}\ Y{\isacharparenright}{\kern0pt}{\isacharparenright}{\kern0pt}\ {\isasymin}\ \ Restr\ devos{\isacharunderscore}{\kern0pt}rel\ {\isacharquery}{\kern0pt}fin{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
+\ hXYM\ M{\isacharunderscore}{\kern0pt}def\ hXY{\isadigit{1}}M\ h\ hXY{\isadigit{1}}le\ \isanewline
+\ \ \ \ \ \ \ \ devos{\isacharunderscore}{\kern0pt}rel{\isacharunderscore}{\kern0pt}iff\ hX{\isadigit{1}}lt\ hXY{\isadigit{1}}le\ h\ \isacommand{by}\isamarkupfalse%
+\ force\isanewline
+\ \ \ \ \isacommand{ultimately}\isamarkupfalse%
+\ \isacommand{show}\isamarkupfalse%
+\ {\isacharquery}{\kern0pt}thesis\ \isacommand{using}\isamarkupfalse%
+\ hmin\ \isacommand{by}\isamarkupfalse%
+\ blast\isanewline
+\ \ \isacommand{qed}\isamarkupfalse%
+\isanewline
+\isacommand{qed}\isamarkupfalse%
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isanewline
+%
+\isadelimtheory
+\isanewline
+%
+\endisadelimtheory
+%
+\isatagtheory
+\isacommand{end}\isamarkupfalse%
+%
+\endisatagtheory
+{\isafoldtheory}%
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\end{isabellebody}%
+\endinput
+%:%file=~/IsabelleProjects/Generalized_Cauchy_Davenport/Generalized_Cauchy_Davenport_main_proof.thy%:%
+%:%11=1%:%
+%:%27=14%:%
+%:%28=14%:%
+%:%29=15%:%
+%:%30=16%:%
+%:%31=17%:%
+%:%36=17%:%
+%:%39=18%:%
+%:%40=19%:%
+%:%41=19%:%
+%:%42=20%:%
+%:%43=21%:%
+%:%50=23%:%
+%:%60=24%:%
+%:%61=24%:%
+%:%62=25%:%
+%:%63=26%:%
+%:%64=27%:%
+%:%65=28%:%
+%:%66=28%:%
+%:%67=29%:%
+%:%69=31%:%
+%:%72=32%:%
+%:%76=32%:%
+%:%77=32%:%
+%:%78=32%:%
+%:%83=32%:%
+%:%86=33%:%
+%:%87=34%:%
+%:%88=34%:%
+%:%89=35%:%
+%:%92=36%:%
+%:%96=36%:%
+%:%97=36%:%
+%:%98=36%:%
+%:%107=38%:%
+%:%109=39%:%
+%:%110=39%:%
+%:%111=40%:%
+%:%118=41%:%
+%:%119=41%:%
+%:%120=42%:%
+%:%121=42%:%
+%:%122=43%:%
+%:%123=43%:%
+%:%124=44%:%
+%:%125=44%:%
+%:%126=45%:%
+%:%127=45%:%
+%:%128=46%:%
+%:%129=46%:%
+%:%130=47%:%
+%:%131=47%:%
+%:%132=48%:%
+%:%133=48%:%
+%:%134=48%:%
+%:%135=49%:%
+%:%136=49%:%
+%:%137=49%:%
+%:%138=49%:%
+%:%139=50%:%
+%:%140=50%:%
+%:%141=50%:%
+%:%142=51%:%
+%:%143=51%:%
+%:%144=51%:%
+%:%145=52%:%
+%:%146=52%:%
+%:%147=52%:%
+%:%148=52%:%
+%:%149=52%:%
+%:%150=53%:%
+%:%151=53%:%
+%:%152=54%:%
+%:%153=54%:%
+%:%154=54%:%
+%:%155=55%:%
+%:%156=55%:%
+%:%157=55%:%
+%:%158=56%:%
+%:%159=56%:%
+%:%160=57%:%
+%:%161=57%:%
+%:%162=57%:%
+%:%163=58%:%
+%:%164=58%:%
+%:%165=58%:%
+%:%166=59%:%
+%:%167=59%:%
+%:%168=60%:%
+%:%169=60%:%
+%:%171=62%:%
+%:%172=63%:%
+%:%173=63%:%
+%:%174=64%:%
+%:%175=64%:%
+%:%176=64%:%
+%:%177=65%:%
+%:%178=65%:%
+%:%179=65%:%
+%:%180=66%:%
+%:%181=67%:%
+%:%182=68%:%
+%:%183=68%:%
+%:%184=68%:%
+%:%185=69%:%
+%:%186=69%:%
+%:%187=69%:%
+%:%188=70%:%
+%:%189=71%:%
+%:%190=71%:%
+%:%191=71%:%
+%:%192=72%:%
+%:%193=72%:%
+%:%194=72%:%
+%:%195=73%:%
+%:%196=73%:%
+%:%197=73%:%
+%:%198=74%:%
+%:%199=74%:%
+%:%200=75%:%
+%:%201=75%:%
+%:%202=75%:%
+%:%203=76%:%
+%:%204=76%:%
+%:%205=77%:%
+%:%206=77%:%
+%:%207=77%:%
+%:%208=77%:%
+%:%209=78%:%
+%:%210=78%:%
+%:%211=79%:%
+%:%212=79%:%
+%:%213=80%:%
+%:%214=80%:%
+%:%215=80%:%
+%:%216=80%:%
+%:%217=80%:%
+%:%218=81%:%
+%:%219=81%:%
+%:%220=81%:%
+%:%221=82%:%
+%:%222=82%:%
+%:%223=83%:%
+%:%224=83%:%
+%:%225=84%:%
+%:%226=84%:%
+%:%227=84%:%
+%:%228=85%:%
+%:%229=85%:%
+%:%230=85%:%
+%:%231=86%:%
+%:%232=86%:%
+%:%233=86%:%
+%:%234=86%:%
+%:%235=87%:%
+%:%250=89%:%
+%:%260=90%:%
+%:%261=90%:%
+%:%262=91%:%
+%:%263=92%:%
+%:%264=92%:%
+%:%265=93%:%
+%:%266=94%:%
+%:%269=95%:%
+%:%273=95%:%
+%:%274=95%:%
+%:%275=95%:%
+%:%280=95%:%
+%:%283=96%:%
+%:%284=97%:%
+%:%285=97%:%
+%:%286=98%:%
+%:%287=99%:%
+%:%289=99%:%
+%:%293=99%:%
+%:%294=99%:%
+%:%295=99%:%
+%:%302=99%:%
+%:%303=100%:%
+%:%304=101%:%
+%:%312=103%:%
+%:%324=105%:%
+%:%326=106%:%
+%:%327=106%:%
+%:%328=107%:%
+%:%329=108%:%
+%:%330=109%:%
+%:%331=110%:%
+%:%338=111%:%
+%:%339=111%:%
+%:%340=112%:%
+%:%341=112%:%
+%:%342=113%:%
+%:%343=113%:%
+%:%344=114%:%
+%:%345=114%:%
+%:%346=115%:%
+%:%347=115%:%
+%:%348=115%:%
+%:%349=115%:%
+%:%350=116%:%
+%:%351=116%:%
+%:%352=116%:%
+%:%353=117%:%
+%:%354=117%:%
+%:%355=117%:%
+%:%356=118%:%
+%:%357=118%:%
+%:%358=119%:%
+%:%359=119%:%
+%:%360=119%:%
+%:%361=120%:%
+%:%362=120%:%
+%:%363=121%:%
+%:%364=121%:%
+%:%365=122%:%
+%:%366=122%:%
+%:%367=123%:%
+%:%368=123%:%
+%:%369=123%:%
+%:%370=123%:%
+%:%371=124%:%
+%:%372=124%:%
+%:%373=125%:%
+%:%374=125%:%
+%:%375=126%:%
+%:%376=126%:%
+%:%377=126%:%
+%:%378=126%:%
+%:%379=127%:%
+%:%380=127%:%
+%:%381=127%:%
+%:%382=128%:%
+%:%383=128%:%
+%:%384=128%:%
+%:%385=129%:%
+%:%386=129%:%
+%:%387=129%:%
+%:%388=130%:%
+%:%389=130%:%
+%:%390=130%:%
+%:%391=131%:%
+%:%392=131%:%
+%:%393=131%:%
+%:%394=132%:%
+%:%395=132%:%
+%:%396=132%:%
+%:%397=133%:%
+%:%398=133%:%
+%:%399=133%:%
+%:%400=133%:%
+%:%401=133%:%
+%:%402=134%:%
+%:%403=134%:%
+%:%404=134%:%
+%:%405=135%:%
+%:%406=135%:%
+%:%407=135%:%
+%:%408=136%:%
+%:%409=136%:%
+%:%410=136%:%
+%:%411=136%:%
+%:%412=136%:%
+%:%413=137%:%
+%:%414=137%:%
+%:%415=137%:%
+%:%416=137%:%
+%:%417=137%:%
+%:%418=138%:%
+%:%419=138%:%
+%:%420=138%:%
+%:%421=138%:%
+%:%422=138%:%
+%:%423=139%:%
+%:%424=139%:%
+%:%425=139%:%
+%:%426=139%:%
+%:%427=139%:%
+%:%428=140%:%
+%:%429=140%:%
+%:%430=141%:%
+%:%431=141%:%
+%:%432=142%:%
+%:%433=142%:%
+%:%434=143%:%
+%:%435=143%:%
+%:%436=144%:%
+%:%437=144%:%
+%:%438=144%:%
+%:%439=144%:%
+%:%440=144%:%
+%:%441=145%:%
+%:%442=145%:%
+%:%443=145%:%
+%:%444=145%:%
+%:%445=146%:%
+%:%446=146%:%
+%:%447=146%:%
+%:%448=146%:%
+%:%449=146%:%
+%:%450=147%:%
+%:%451=147%:%
+%:%452=147%:%
+%:%453=147%:%
+%:%454=148%:%
+%:%455=148%:%
+%:%456=149%:%
+%:%457=149%:%
+%:%458=149%:%
+%:%459=149%:%
+%:%460=149%:%
+%:%461=150%:%
+%:%462=150%:%
+%:%463=151%:%
+%:%464=151%:%
+%:%465=151%:%
+%:%466=151%:%
+%:%467=152%:%
+%:%468=152%:%
+%:%469=152%:%
+%:%470=152%:%
+%:%471=153%:%
+%:%472=154%:%
+%:%473=154%:%
+%:%474=154%:%
+%:%475=155%:%
+%:%476=155%:%
+%:%477=155%:%
+%:%478=156%:%
+%:%479=157%:%
+%:%480=157%:%
+%:%481=158%:%
+%:%482=158%:%
+%:%483=159%:%
+%:%484=159%:%
+%:%485=160%:%
+%:%486=160%:%
+%:%487=160%:%
+%:%488=160%:%
+%:%489=161%:%
+%:%490=161%:%
+%:%491=161%:%
+%:%492=161%:%
+%:%493=162%:%
+%:%494=162%:%
+%:%495=163%:%
+%:%496=163%:%
+%:%497=163%:%
+%:%498=163%:%
+%:%499=163%:%
+%:%500=164%:%
+%:%501=164%:%
+%:%502=164%:%
+%:%503=164%:%
+%:%504=165%:%
+%:%505=165%:%
+%:%506=166%:%
+%:%507=166%:%
+%:%508=166%:%
+%:%509=166%:%
+%:%510=167%:%
+%:%511=167%:%
+%:%512=167%:%
+%:%513=168%:%
+%:%514=168%:%
+%:%515=169%:%
+%:%516=169%:%
+%:%517=170%:%
+%:%518=170%:%
+%:%519=170%:%
+%:%520=170%:%
+%:%521=170%:%
+%:%522=171%:%
+%:%523=172%:%
+%:%524=172%:%
+%:%525=172%:%
+%:%526=172%:%
+%:%527=172%:%
+%:%528=173%:%
+%:%529=173%:%
+%:%530=174%:%
+%:%531=174%:%
+%:%532=174%:%
+%:%533=174%:%
+%:%534=175%:%
+%:%535=176%:%
+%:%536=176%:%
+%:%537=177%:%
+%:%538=177%:%
+%:%539=177%:%
+%:%540=178%:%
+%:%541=178%:%
+%:%542=179%:%
+%:%543=179%:%
+%:%544=179%:%
+%:%545=179%:%
+%:%546=180%:%
+%:%547=180%:%
+%:%548=181%:%
+%:%549=182%:%
+%:%550=182%:%
+%:%551=182%:%
+%:%552=182%:%
+%:%553=182%:%
+%:%554=183%:%
+%:%555=183%:%
+%:%556=184%:%
+%:%557=184%:%
+%:%558=185%:%
+%:%559=185%:%
+%:%560=186%:%
+%:%561=186%:%
+%:%562=187%:%
+%:%563=187%:%
+%:%564=188%:%
+%:%565=188%:%
+%:%566=189%:%
+%:%567=189%:%
+%:%568=189%:%
+%:%569=190%:%
+%:%570=190%:%
+%:%571=191%:%
+%:%572=191%:%
+%:%573=192%:%
+%:%574=192%:%
+%:%575=192%:%
+%:%576=193%:%
+%:%577=193%:%
+%:%578=193%:%
+%:%579=193%:%
+%:%580=194%:%
+%:%581=194%:%
+%:%582=195%:%
+%:%583=195%:%
+%:%584=196%:%
+%:%585=196%:%
+%:%586=197%:%
+%:%587=197%:%
+%:%588=197%:%
+%:%589=197%:%
+%:%590=197%:%
+%:%591=198%:%
+%:%592=198%:%
+%:%593=199%:%
+%:%594=199%:%
+%:%595=200%:%
+%:%596=200%:%
+%:%597=200%:%
+%:%598=200%:%
+%:%599=200%:%
+%:%600=201%:%
+%:%601=201%:%
+%:%602=201%:%
+%:%603=201%:%
+%:%604=201%:%
+%:%605=202%:%
+%:%606=202%:%
+%:%607=202%:%
+%:%608=202%:%
+%:%609=203%:%
+%:%610=203%:%
+%:%611=204%:%
+%:%612=204%:%
+%:%613=205%:%
+%:%614=205%:%
+%:%615=206%:%
+%:%616=206%:%
+%:%617=207%:%
+%:%618=207%:%
+%:%619=208%:%
+%:%620=208%:%
+%:%621=208%:%
+%:%622=209%:%
+%:%623=209%:%
+%:%624=209%:%
+%:%625=209%:%
+%:%626=210%:%
+%:%627=210%:%
+%:%628=211%:%
+%:%629=211%:%
+%:%630=212%:%
+%:%631=212%:%
+%:%632=213%:%
+%:%633=213%:%
+%:%634=213%:%
+%:%635=213%:%
+%:%636=213%:%
+%:%637=214%:%
+%:%638=214%:%
+%:%639=215%:%
+%:%640=215%:%
+%:%641=216%:%
+%:%642=216%:%
+%:%643=216%:%
+%:%644=216%:%
+%:%645=216%:%
+%:%646=217%:%
+%:%647=217%:%
+%:%648=217%:%
+%:%649=217%:%
+%:%650=217%:%
+%:%651=218%:%
+%:%652=218%:%
+%:%653=218%:%
+%:%654=218%:%
+%:%655=219%:%
+%:%656=219%:%
+%:%657=220%:%
+%:%658=220%:%
+%:%659=221%:%
+%:%660=221%:%
+%:%661=222%:%
+%:%662=222%:%
+%:%663=223%:%
+%:%664=223%:%
+%:%665=224%:%
+%:%666=224%:%
+%:%667=225%:%
+%:%668=225%:%
+%:%669=225%:%
+%:%670=226%:%
+%:%671=226%:%
+%:%672=226%:%
+%:%673=226%:%
+%:%674=227%:%
+%:%675=227%:%
+%:%676=228%:%
+%:%677=228%:%
+%:%678=228%:%
+%:%679=228%:%
+%:%680=229%:%
+%:%681=230%:%
+%:%682=230%:%
+%:%683=231%:%
+%:%684=231%:%
+%:%685=231%:%
+%:%686=231%:%
+%:%687=231%:%
+%:%688=232%:%
+%:%689=232%:%
+%:%690=232%:%
+%:%691=232%:%
+%:%692=232%:%
+%:%693=233%:%
+%:%694=233%:%
+%:%695=234%:%
+%:%696=234%:%
+%:%697=235%:%
+%:%698=235%:%
+%:%699=236%:%
+%:%700=236%:%
+%:%701=237%:%
+%:%702=237%:%
+%:%703=238%:%
+%:%704=238%:%
+%:%705=239%:%
+%:%706=239%:%
+%:%707=240%:%
+%:%708=241%:%
+%:%709=241%:%
+%:%710=242%:%
+%:%711=242%:%
+%:%712=243%:%
+%:%713=243%:%
+%:%714=244%:%
+%:%715=244%:%
+%:%716=244%:%
+%:%717=244%:%
+%:%718=245%:%
+%:%719=245%:%
+%:%720=245%:%
+%:%721=245%:%
+%:%722=245%:%
+%:%723=246%:%
+%:%724=246%:%
+%:%725=246%:%
+%:%726=246%:%
+%:%727=246%:%
+%:%728=247%:%
+%:%729=247%:%
+%:%730=247%:%
+%:%731=247%:%
+%:%732=247%:%
+%:%733=248%:%
+%:%734=248%:%
+%:%735=248%:%
+%:%736=248%:%
+%:%737=249%:%
+%:%738=249%:%
+%:%739=250%:%
+%:%740=250%:%
+%:%741=250%:%
+%:%742=250%:%
+%:%743=250%:%
+%:%744=251%:%
+%:%745=251%:%
+%:%746=252%:%
+%:%747=252%:%
+%:%748=253%:%
+%:%749=253%:%
+%:%750=253%:%
+%:%751=253%:%
+%:%752=253%:%
+%:%753=254%:%
+%:%754=254%:%
+%:%755=254%:%
+%:%756=254%:%
+%:%757=255%:%
+%:%758=255%:%
+%:%759=255%:%
+%:%760=255%:%
+%:%761=256%:%
+%:%762=256%:%
+%:%763=256%:%
+%:%764=256%:%
+%:%765=256%:%
+%:%766=257%:%
+%:%767=257%:%
+%:%768=257%:%
+%:%769=257%:%
+%:%770=257%:%
+%:%771=258%:%
+%:%772=258%:%
+%:%773=258%:%
+%:%774=258%:%
+%:%775=258%:%
+%:%776=259%:%
+%:%777=259%:%
+%:%778=259%:%
+%:%779=259%:%
+%:%780=260%:%
+%:%781=260%:%
+%:%782=261%:%
+%:%783=261%:%
+%:%784=261%:%
+%:%785=261%:%
+%:%786=261%:%
+%:%787=262%:%
+%:%788=262%:%
+%:%789=263%:%
+%:%795=263%:%
+%:%798=264%:%
+%:%801=265%:%
+%:%806=266%:%
