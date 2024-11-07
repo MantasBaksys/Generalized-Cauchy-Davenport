@@ -10,11 +10,13 @@
 \newcommand{\isafoldtag}[1]%
 {\includecomment{isadelim#1}\excludecomment{isatag#1}\csarg\def{isafold#1}{\isafold{#1}}}
 
+\isafoldtag{
+proof}
 \isafoldtag{ML}
 \isakeeptag{document}
 \isakeeptag{important}
 \isadroptag{invisible}
-\isafoldtag{proof}
+\isakeeptag{proof}
 \isakeeptag{theory}
 \isakeeptag{unimportant}
 \isakeeptag{visible}

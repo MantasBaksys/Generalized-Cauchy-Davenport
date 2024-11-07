@@ -1,4 +1,4 @@
-section\<open>Generalized Cauchy--Davenport theorem: main proof\<close>
+section\<open>Generalized Cauchy--Davenport Theorem: main proof\<close>
 
 (*
   Session: Generalized_Cauchy_Davenport
@@ -89,7 +89,7 @@ qed
 
 subsection\<open>$p(G)$ -- the order of the smallest nontrivial finite subgroup of a group: definition and lemmas\<close>
 
-text\<open>$ecard$ -- definition of cardinality of a set, defined to be $\infty$ for infinite sets\<close>
+text\<open>ecard -- definition of cardinality of a set, defined to be $\infty$ for infinite sets\<close>
 definition ecard where "ecard A = (if finite A then card A else \<infinity>)"
 
 lemma ecard_eq_card_finite:
@@ -97,7 +97,7 @@ lemma ecard_eq_card_finite:
   shows "ecard A = card A" 
   using assms ecard_def by metis
 
-text\<open>$p(G)$ -- the size of the smallest nontrivial finite subgroup of $G$, set to $\infty$ if none exist\<close>
+text\<open>p(G) -- the size of the smallest nontrivial finite subgroup of $G$, set to $\infty$ if none exist\<close>
 definition p :: enat where "p = Inf (ecard ` {H. subgroup H G (\<cdot>) \<one> \<and> H \<noteq> {\<one>}})"
 
 lemma subgroup_finite_ge:
