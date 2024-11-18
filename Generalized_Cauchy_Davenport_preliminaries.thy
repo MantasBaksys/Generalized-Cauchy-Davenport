@@ -14,7 +14,8 @@ section\<open>Preliminaries on well-orderings, groups, and sumsets\<close>
 theory Generalized_Cauchy_Davenport_preliminaries
   imports 
  Complex_Main
- "Jacobson_Basic_Algebra.Group_Theory"
+ "Jacobson_Basic_Algebra.Group_Theory" 
+ "HOL-Library.Extended_Nat"
 
 begin
 
@@ -304,7 +305,7 @@ lemma nat_powers_submonoid:
 
 lemma nat_powers_monoid:
   assumes "g \<in> M"
-  shows "monoid (nat_powers g) (\<cdot>) \<one>"
+  shows "Group_Theory.monoid (nat_powers g) (\<cdot>) \<one>"
   using nat_powers_submonoid assms by (smt (verit) monoid.intro associative left_unit 
       one_mem_nat_powers nat_powers_mult_closed right_unit submonoid.sub)
 
@@ -322,7 +323,7 @@ qed
 
 lemma powers_monoid:
   assumes "g \<in> M" and "invertible g"
-  shows "monoid (powers g) (\<cdot>) \<one>"
+  shows "Group_Theory.monoid (powers g) (\<cdot>) \<one>"
   by (smt (verit) monoid.intro Un_iff assms associative in_mono invertible_inverse_closed 
       monoid.left_unit monoid.right_unit nat_powers_monoid powers_eq_union_nat_powers 
       powers_mult_closed powers_submonoid submonoid.sub_unit_closed submonoid.subset)
@@ -346,7 +347,7 @@ lemma mem_nat_inv_powers_invertible:
 
 lemma powers_group:
   assumes "g \<in> M" and "invertible g"
-  shows "group (powers g) (\<cdot>) \<one>"
+  shows "Group_Theory.group (powers g) (\<cdot>) \<one>"
 proof(auto simp add: group_def Group_Theory.group_axioms_def assms powers_monoid)
   show "\<And>u. u \<in> powers g \<Longrightarrow> monoid.invertible (powers g) (\<cdot>) \<one> u" using assms 
     mem_nat_inv_powers_invertible mem_nat_powers_invertible powers_eq_union_nat_powers by auto
@@ -580,5 +581,15 @@ lemma smul_singleton_eq_contains_powers:
     smul_singleton_eq_contains_inverse_nat_powers assms smul_subset_Un2 by auto
 
 end
+
+subsection\<open>$ecard$ -- extended definition of cardinality of a set\<close>
+
+text\<open>$ecard$ -- definition of a cardinality of a set taking values in $enat$ -- extended natural numbers, defined to be $\infty$ for infinite sets\<close>
+definition ecard where "ecard A = (if finite A then card A else \<infinity>)"
+
+lemma ecard_eq_card_finite:
+  assumes "finite A"
+  shows "ecard A = card A" 
+  using assms ecard_def by metis
 
 end

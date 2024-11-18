@@ -14,7 +14,6 @@ section\<open>Generalized Cauchy--Davenport theorem: main proof\<close>
 theory Generalized_Cauchy_Davenport_main_proof
   imports
   Generalized_Cauchy_Davenport_preliminaries
-  "HOL-Library.Extended_Nat"
 begin
 
 context group
@@ -89,14 +88,6 @@ qed
 
 subsection\<open>$p(G)$ -- the order of the smallest nontrivial finite subgroup of a group: definition and lemmas\<close>
 
-text\<open>$ecard$ -- definition of cardinality of a set, defined to be $\infty$ for infinite sets\<close>
-definition ecard where "ecard A = (if finite A then card A else \<infinity>)"
-
-lemma ecard_eq_card_finite:
-  assumes "finite A"
-  shows "ecard A = card A" 
-  using assms ecard_def by metis
-
 text\<open>$p(G)$ -- the size of the smallest nontrivial finite subgroup of $G$, set to $\infty$ if none exist\<close>
 definition p :: enat where "p = Inf (ecard ` {H. subgroup H G (\<cdot>) \<one> \<and> H \<noteq> {\<one>}})"
 
@@ -112,7 +103,7 @@ lemma subgroup_infinite_or_card_ge:
 
 end
 
-subsection\<open>Proof of the Generalized Cauchy--Davenport theorem for (non-abelian) groups\<close>
+subsection\<open>Proof of the generalized Cauchy--Davenport theorem for (non-abelian) groups\<close>
 text\<open>Generalized Cauchy--Davenport theorem for (non-abelian) groups due to Matt DeVos \cite{DeVos2016OnAG}\<close>
 theorem (in group) Generalized_Cauchy_Davenport:
   assumes hAne: "A \<noteq> {}" and hBne: "B \<noteq> {}" and hAG: "A \<subseteq> G" and hBG: "B \<subseteq> G" and

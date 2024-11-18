@@ -19,7 +19,7 @@ University of Cambridge\\
 \texttt{mb2412@cam.ac.uk}}
 
 \maketitle
-
+                                                             
 \begin{abstract}
 The Cauchy--Davenport theorem is a fundamental result in additive combinatorics.
 It was originally independently discovered by Cauchy \cite{cauchy1812recherches} and Davenport \cite{davenport} and has been formalized in the AFP entry \cite{Kneser_Cauchy_Davenport-AFP} as a corollary of Kneser's theorem.
