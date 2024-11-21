@@ -89,7 +89,7 @@ qed
 subsection\<open>$p(G)$ -- the order of the smallest nontrivial finite subgroup of a group: definition and lemmas\<close>
 
 text\<open>$p(G)$ -- the size of the smallest nontrivial finite subgroup of $G$, set to $\infty$ if none exist\<close>
-definition p :: enat where "p = Inf (ecard ` {H. subgroup H G (\<cdot>) \<one> \<and> H \<noteq> {\<one>}})"
+definition p :: enat where "p = Inf (orderOf ` {H. subgroup H G (\<cdot>) \<one> \<and> H \<noteq> {\<one>}})"
 
 lemma subgroup_finite_ge:
   assumes "subgroup H G (\<cdot>) \<one>" and "H \<noteq> {\<one>}" and "finite H"
@@ -110,10 +110,12 @@ theorem (in group) Generalized_Cauchy_Davenport:
   hAfin: "finite A" and hBfin: "finite B"
   shows "card (A \<cdots> B) \<ge> min p (card A + card B - 1)"
 proof(rule ccontr)
+  text\<open>We will prove the theorem by contradiction\<close>
   assume hcontr: "\<not> min p (card A + card B - 1) \<le> card (A \<cdots> B)"
   let ?fin = "{(A, B). finite A \<and> A \<noteq> {} \<and> A \<subseteq> G \<and> finite B \<and> B \<noteq> {} \<and> B \<subseteq> G}"
-  define M where "M = {(A, B). card (A \<cdots> B) < min p (card A + card B - 1)} \<inter> ?fin" 
+  define M where "M = {(A, B). card (A \<cdots> B) < min p (card A + card B - 1)} \<inter> ?fin"
   have hmemM: "(A, B) \<in> M" using assms hcontr M_def not_le by blast
+  text\<open>Firstly, extract sets $X$ and $Y$, which are minimal counterexamples of the DeVos relation defined above\<close>
   then obtain X Y where hXYM: "(X, Y) \<in> M" and hmin: "\<And>Z. Z \<in> M \<Longrightarrow> (Z, (X, Y)) \<notin> Restr devos_rel ?fin" 
     using devos_rel_wf wfE_min by (smt (verit, del_insts) old.prod.exhaust)
   have hXG: "X \<subseteq> G" and hYG: "Y \<subseteq> G" and hXfin: "finite X" and hYfin: "finite Y" and 
@@ -139,6 +141,7 @@ proof(rule ccontr)
     then have "\<not> card Y < card X" using hN  hNM hNplusM devos_rel_iff by simp
     then show False using hcontr by simp
   qed
+  text\<open>Observe that $X$ contains at least 2 elements, otherwise the proof is easy\<close>
   have hX2: "2 \<le> card X"
   proof(rule ccontr)
     assume " \<not> 2 \<le> card X"
@@ -152,9 +155,11 @@ proof(rule ccontr)
   then obtain a b where habX: "{a, b} \<subseteq> X" and habne: "a \<noteq> b" by (metis card_2_iff obtain_subset_with_card_n)
   moreover have "b \<in> X \<cdots> {inverse a \<cdot> b}" by (smt (verit) habX composition_closed hXG insert_subset 
     invertible invertible_inverse_closed invertible_right_inverse2 singletonI smul.smulI subsetD)
+  text\<open>From this, obtain an element $g \in G$ such that $Xg \cap X \neq \emptyset$\<close>
   then obtain g where hgG: "g \<in> G" and hg1: "g \<noteq> \<one>" and hXgne: "(X \<cdots> {g}) \<inter> X \<noteq> {}" 
     using habne habX hXG by (metis composition_closed insert_disjoint(2) insert_subset invertible 
       invertible_inverse_closed invertible_right_inverse2 mk_disjoint_insert right_unit)
+  text\<open>Now we show that  $Xg \cap X$ is strict subset of $X$\<close>
   have hpsubX: "(X \<cdots> {g}) \<inter> X \<subset> X"
   proof(rule ccontr)
     assume "\<not> (X \<cdots> {g}) \<inter> X \<subset> X"
@@ -184,6 +189,7 @@ proof(rule ccontr)
       by (smt (verit) enat_ile enat_ord_simps(1)) 
     then show False using hXYlt by auto
   qed
+  text\<open>Define auxiliary transformationms of sets $X$ and $Y$ to reach a contradiction\<close>
   let ?X1 = "(X \<cdots> {g}) \<inter> X"
   let ?X2 = "(X \<cdots> {g}) \<union> X"
   let ?Y1 = "({inverse g} \<cdots> Y) \<union> Y"
@@ -241,6 +247,7 @@ proof(rule ccontr)
     using card_smul_singleton_left_eq hgG hYfin hYG card_Un_Int finite_smul
     by (metis Int_lower1 Un_Int_eq(3) card_0_eq card_Un_le card_seteq finite.emptyI finite.insertI  
       hY2ne le_add_same_cancel1 mult_2 subset_Un_eq)
+  text\<open>Split the contradiction proof into the cases based on whether $|?X2| + |?Y2| > |X| + |Y|$ holds\<close>
   show False
   proof (cases "card ?X2 + card ?Y2 > card X + card Y")
     case hcase: True
@@ -253,6 +260,7 @@ proof(rule ccontr)
       by (smt (verit, ccfv_SIG) linorder_not_le order_le_less order_le_less_subst2)
     ultimately have "card (?X2 \<cdots> ?Y2) < min p (card ?X2 + card ?Y2 - 1)" by order
     then have hXY1M: "(?X2, ?Y2) \<in> M" using hY2ne hX2fin hX2G hXYM M_def by blast
+    text\<open>Show that $(?X2, ?Y2)$ is a smaller counterexample for the DeVos relation\<close>
     moreover have "((?X2, ?Y2), (X, Y)) \<in>  Restr devos_rel ?fin" using hXYM M_def hXY1M h hXY2le 
         devos_rel_iff hcase by auto
     ultimately show False using hmin by blast 
@@ -266,6 +274,7 @@ proof(rule ccontr)
     also have "... \<le> min p (card ?X1 + card ?Y1 - 1)" using h enat_ile enat_ord_simps(1) min_def
       by (smt (verit, ccfv_threshold) linorder_le_less_linear order.asym order_le_less_trans)
     finally have hXY1M: "(?X1, ?Y1) \<in> M" using M_def hXgne hY1fin hY1G hXYM by blast
+    text\<open>Show that $(?X1, ?Y1)$ is a smaller counterexample for the DeVos relation\<close>
     moreover have "((?X1, ?Y1), (X, Y)) \<in>  Restr devos_rel ?fin" using hXYM M_def hXY1M h hXY1le 
         devos_rel_iff hX1lt hXY1le hcase by force
     ultimately show ?thesis using hmin by blast

@@ -262,7 +262,7 @@ Lemma stating that the above relation due to DeVos is well-founded%
 $p(G)$ -- the size of the smallest nontrivial finite subgroup of $G$, set to $\infty$ if none exist%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{definition}\isamarkupfalse%
-\ p\ {\isacharcolon}{\kern0pt}{\isacharcolon}{\kern0pt}\ enat\ \isakeyword{where}\ {\isachardoublequoteopen}p\ {\isacharequal}{\kern0pt}\ Inf\ {\isacharparenleft}{\kern0pt}ecard\ {\isacharbackquote}{\kern0pt}\ {\isacharbraceleft}{\kern0pt}H{\isachardot}{\kern0pt}\ subgroup\ H\ G\ {\isacharparenleft}{\kern0pt}{\isasymcdot}{\isacharparenright}{\kern0pt}\ {\isasymone}\ {\isasymand}\ H\ {\isasymnoteq}\ {\isacharbraceleft}{\kern0pt}{\isasymone}{\isacharbraceright}{\kern0pt}{\isacharbraceright}{\kern0pt}{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}\isanewline
+\ p\ {\isacharcolon}{\kern0pt}{\isacharcolon}{\kern0pt}\ enat\ \isakeyword{where}\ {\isachardoublequoteopen}p\ {\isacharequal}{\kern0pt}\ Inf\ {\isacharparenleft}{\kern0pt}orderOf\ {\isacharbackquote}{\kern0pt}\ {\isacharbraceleft}{\kern0pt}H{\isachardot}{\kern0pt}\ subgroup\ H\ G\ {\isacharparenleft}{\kern0pt}{\isasymcdot}{\isacharparenright}{\kern0pt}\ {\isasymone}\ {\isasymand}\ H\ {\isasymnoteq}\ {\isacharbraceleft}{\kern0pt}{\isasymone}{\isacharbraceright}{\kern0pt}{\isacharbraceright}{\kern0pt}{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}\isanewline
 \isanewline
 \isacommand{lemma}\isamarkupfalse%
 \ subgroup{\isacharunderscore}{\kern0pt}finite{\isacharunderscore}{\kern0pt}ge{\isacharcolon}{\kern0pt}\isanewline
@@ -340,17 +340,23 @@ Generalized Cauchy--Davenport theorem for (non-abelian) groups due to Matt DeVos
 %
 \isatagproof
 \isacommand{proof}\isamarkupfalse%
-{\isacharparenleft}{\kern0pt}rule\ ccontr{\isacharparenright}{\kern0pt}\isanewline
+{\isacharparenleft}{\kern0pt}rule\ ccontr{\isacharparenright}{\kern0pt}%
+\begin{isamarkuptext}%
+We will prove the theorem by contradiction%
+\end{isamarkuptext}\isamarkuptrue%
 \ \ \isacommand{assume}\isamarkupfalse%
 \ hcontr{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}{\isasymnot}\ min\ p\ {\isacharparenleft}{\kern0pt}card\ A\ {\isacharplus}{\kern0pt}\ card\ B\ {\isacharminus}{\kern0pt}\ {\isadigit{1}}{\isacharparenright}{\kern0pt}\ {\isasymle}\ card\ {\isacharparenleft}{\kern0pt}A\ {\isasymcdots}\ B{\isacharparenright}{\kern0pt}{\isachardoublequoteclose}\isanewline
 \ \ \isacommand{let}\isamarkupfalse%
 \ {\isacharquery}{\kern0pt}fin\ {\isacharequal}{\kern0pt}\ {\isachardoublequoteopen}{\isacharbraceleft}{\kern0pt}{\isacharparenleft}{\kern0pt}A{\isacharcomma}{\kern0pt}\ B{\isacharparenright}{\kern0pt}{\isachardot}{\kern0pt}\ finite\ A\ {\isasymand}\ A\ {\isasymnoteq}\ {\isacharbraceleft}{\kern0pt}{\isacharbraceright}{\kern0pt}\ {\isasymand}\ A\ {\isasymsubseteq}\ G\ {\isasymand}\ finite\ B\ {\isasymand}\ B\ {\isasymnoteq}\ {\isacharbraceleft}{\kern0pt}{\isacharbraceright}{\kern0pt}\ {\isasymand}\ B\ {\isasymsubseteq}\ G{\isacharbraceright}{\kern0pt}{\isachardoublequoteclose}\isanewline
 \ \ \isacommand{define}\isamarkupfalse%
-\ M\ \isakeyword{where}\ {\isachardoublequoteopen}M\ {\isacharequal}{\kern0pt}\ {\isacharbraceleft}{\kern0pt}{\isacharparenleft}{\kern0pt}A{\isacharcomma}{\kern0pt}\ B{\isacharparenright}{\kern0pt}{\isachardot}{\kern0pt}\ card\ {\isacharparenleft}{\kern0pt}A\ {\isasymcdots}\ B{\isacharparenright}{\kern0pt}\ {\isacharless}{\kern0pt}\ min\ p\ {\isacharparenleft}{\kern0pt}card\ A\ {\isacharplus}{\kern0pt}\ card\ B\ {\isacharminus}{\kern0pt}\ {\isadigit{1}}{\isacharparenright}{\kern0pt}{\isacharbraceright}{\kern0pt}\ {\isasyminter}\ {\isacharquery}{\kern0pt}fin{\isachardoublequoteclose}\ \isanewline
+\ M\ \isakeyword{where}\ {\isachardoublequoteopen}M\ {\isacharequal}{\kern0pt}\ {\isacharbraceleft}{\kern0pt}{\isacharparenleft}{\kern0pt}A{\isacharcomma}{\kern0pt}\ B{\isacharparenright}{\kern0pt}{\isachardot}{\kern0pt}\ card\ {\isacharparenleft}{\kern0pt}A\ {\isasymcdots}\ B{\isacharparenright}{\kern0pt}\ {\isacharless}{\kern0pt}\ min\ p\ {\isacharparenleft}{\kern0pt}card\ A\ {\isacharplus}{\kern0pt}\ card\ B\ {\isacharminus}{\kern0pt}\ {\isadigit{1}}{\isacharparenright}{\kern0pt}{\isacharbraceright}{\kern0pt}\ {\isasyminter}\ {\isacharquery}{\kern0pt}fin{\isachardoublequoteclose}\isanewline
 \ \ \isacommand{have}\isamarkupfalse%
 \ hmemM{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}{\isacharparenleft}{\kern0pt}A{\isacharcomma}{\kern0pt}\ B{\isacharparenright}{\kern0pt}\ {\isasymin}\ M{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
 \ assms\ hcontr\ M{\isacharunderscore}{\kern0pt}def\ not{\isacharunderscore}{\kern0pt}le\ \isacommand{by}\isamarkupfalse%
-\ blast\isanewline
+\ blast%
+\begin{isamarkuptext}%
+Firstly, extract sets $X$ and $Y$, which are minimal counterexamples of the DeVos relation defined above%
+\end{isamarkuptext}\isamarkuptrue%
 \ \ \isacommand{then}\isamarkupfalse%
 \ \isacommand{obtain}\isamarkupfalse%
 \ X\ Y\ \isakeyword{where}\ hXYM{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}{\isacharparenleft}{\kern0pt}X{\isacharcomma}{\kern0pt}\ Y{\isacharparenright}{\kern0pt}\ {\isasymin}\ M{\isachardoublequoteclose}\ \isakeyword{and}\ hmin{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}{\isasymAnd}Z{\isachardot}{\kern0pt}\ Z\ {\isasymin}\ M\ {\isasymLongrightarrow}\ {\isacharparenleft}{\kern0pt}Z{\isacharcomma}{\kern0pt}\ {\isacharparenleft}{\kern0pt}X{\isacharcomma}{\kern0pt}\ Y{\isacharparenright}{\kern0pt}{\isacharparenright}{\kern0pt}\ {\isasymnotin}\ Restr\ devos{\isacharunderscore}{\kern0pt}rel\ {\isacharquery}{\kern0pt}fin{\isachardoublequoteclose}\ \isanewline
@@ -430,7 +436,10 @@ Generalized Cauchy--Davenport theorem for (non-abelian) groups due to Matt DeVos
 \ hcontr\ \isacommand{by}\isamarkupfalse%
 \ simp\isanewline
 \ \ \isacommand{qed}\isamarkupfalse%
-\isanewline
+%
+\begin{isamarkuptext}%
+Observe that $X$ contains at least 2 elements, otherwise the proof is easy%
+\end{isamarkuptext}\isamarkuptrue%
 \ \ \isacommand{have}\isamarkupfalse%
 \ hX{\isadigit{2}}{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}{\isadigit{2}}\ {\isasymle}\ card\ X{\isachardoublequoteclose}\isanewline
 \ \ \isacommand{proof}\isamarkupfalse%
@@ -472,14 +481,20 @@ Generalized Cauchy--Davenport theorem for (non-abelian) groups due to Matt DeVos
 \ \isacommand{have}\isamarkupfalse%
 \ {\isachardoublequoteopen}b\ {\isasymin}\ X\ {\isasymcdots}\ {\isacharbraceleft}{\kern0pt}inverse\ a\ {\isasymcdot}\ b{\isacharbraceright}{\kern0pt}{\isachardoublequoteclose}\ \isacommand{by}\isamarkupfalse%
 \ {\isacharparenleft}{\kern0pt}smt\ {\isacharparenleft}{\kern0pt}verit{\isacharparenright}{\kern0pt}\ habX\ composition{\isacharunderscore}{\kern0pt}closed\ hXG\ insert{\isacharunderscore}{\kern0pt}subset\ \isanewline
-\ \ \ \ invertible\ invertible{\isacharunderscore}{\kern0pt}inverse{\isacharunderscore}{\kern0pt}closed\ invertible{\isacharunderscore}{\kern0pt}right{\isacharunderscore}{\kern0pt}inverse{\isadigit{2}}\ singletonI\ smul{\isachardot}{\kern0pt}smulI\ subsetD{\isacharparenright}{\kern0pt}\isanewline
+\ \ \ \ invertible\ invertible{\isacharunderscore}{\kern0pt}inverse{\isacharunderscore}{\kern0pt}closed\ invertible{\isacharunderscore}{\kern0pt}right{\isacharunderscore}{\kern0pt}inverse{\isadigit{2}}\ singletonI\ smul{\isachardot}{\kern0pt}smulI\ subsetD{\isacharparenright}{\kern0pt}%
+\begin{isamarkuptext}%
+From this, obtain an element $g \in G$ such that $Xg \cap X \neq \emptyset$%
+\end{isamarkuptext}\isamarkuptrue%
 \ \ \isacommand{then}\isamarkupfalse%
 \ \isacommand{obtain}\isamarkupfalse%
 \ g\ \isakeyword{where}\ hgG{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}g\ {\isasymin}\ G{\isachardoublequoteclose}\ \isakeyword{and}\ hg{\isadigit{1}}{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}g\ {\isasymnoteq}\ {\isasymone}{\isachardoublequoteclose}\ \isakeyword{and}\ hXgne{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}{\isacharparenleft}{\kern0pt}X\ {\isasymcdots}\ {\isacharbraceleft}{\kern0pt}g{\isacharbraceright}{\kern0pt}{\isacharparenright}{\kern0pt}\ {\isasyminter}\ X\ {\isasymnoteq}\ {\isacharbraceleft}{\kern0pt}{\isacharbraceright}{\kern0pt}{\isachardoublequoteclose}\ \isanewline
 \ \ \ \ \isacommand{using}\isamarkupfalse%
 \ habne\ habX\ hXG\ \isacommand{by}\isamarkupfalse%
 \ {\isacharparenleft}{\kern0pt}metis\ composition{\isacharunderscore}{\kern0pt}closed\ insert{\isacharunderscore}{\kern0pt}disjoint{\isacharparenleft}{\kern0pt}{\isadigit{2}}{\isacharparenright}{\kern0pt}\ insert{\isacharunderscore}{\kern0pt}subset\ invertible\ \isanewline
-\ \ \ \ \ \ invertible{\isacharunderscore}{\kern0pt}inverse{\isacharunderscore}{\kern0pt}closed\ invertible{\isacharunderscore}{\kern0pt}right{\isacharunderscore}{\kern0pt}inverse{\isadigit{2}}\ mk{\isacharunderscore}{\kern0pt}disjoint{\isacharunderscore}{\kern0pt}insert\ right{\isacharunderscore}{\kern0pt}unit{\isacharparenright}{\kern0pt}\isanewline
+\ \ \ \ \ \ invertible{\isacharunderscore}{\kern0pt}inverse{\isacharunderscore}{\kern0pt}closed\ invertible{\isacharunderscore}{\kern0pt}right{\isacharunderscore}{\kern0pt}inverse{\isadigit{2}}\ mk{\isacharunderscore}{\kern0pt}disjoint{\isacharunderscore}{\kern0pt}insert\ right{\isacharunderscore}{\kern0pt}unit{\isacharparenright}{\kern0pt}%
+\begin{isamarkuptext}%
+Now we show that  $Xg \cap X$ is strict subset of $X$%
+\end{isamarkuptext}\isamarkuptrue%
 \ \ \isacommand{have}\isamarkupfalse%
 \ hpsubX{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}{\isacharparenleft}{\kern0pt}X\ {\isasymcdots}\ {\isacharbraceleft}{\kern0pt}g{\isacharbraceright}{\kern0pt}{\isacharparenright}{\kern0pt}\ {\isasyminter}\ X\ {\isasymsubset}\ X{\isachardoublequoteclose}\isanewline
 \ \ \isacommand{proof}\isamarkupfalse%
@@ -559,7 +574,10 @@ Generalized Cauchy--Davenport theorem for (non-abelian) groups due to Matt DeVos
 \ hXYlt\ \isacommand{by}\isamarkupfalse%
 \ auto\isanewline
 \ \ \isacommand{qed}\isamarkupfalse%
-\isanewline
+%
+\begin{isamarkuptext}%
+Define auxiliary transformationms of sets $X$ and $Y$ to reach a contradiction%
+\end{isamarkuptext}\isamarkuptrue%
 \ \ \isacommand{let}\isamarkupfalse%
 \ {\isacharquery}{\kern0pt}X{\isadigit{1}}\ {\isacharequal}{\kern0pt}\ {\isachardoublequoteopen}{\isacharparenleft}{\kern0pt}X\ {\isasymcdots}\ {\isacharbraceleft}{\kern0pt}g{\isacharbraceright}{\kern0pt}{\isacharparenright}{\kern0pt}\ {\isasyminter}\ X{\isachardoublequoteclose}\isanewline
 \ \ \isacommand{let}\isamarkupfalse%
@@ -711,7 +729,10 @@ Generalized Cauchy--Davenport theorem for (non-abelian) groups due to Matt DeVos
 \ card{\isacharunderscore}{\kern0pt}smul{\isacharunderscore}{\kern0pt}singleton{\isacharunderscore}{\kern0pt}left{\isacharunderscore}{\kern0pt}eq\ hgG\ hYfin\ hYG\ card{\isacharunderscore}{\kern0pt}Un{\isacharunderscore}{\kern0pt}Int\ finite{\isacharunderscore}{\kern0pt}smul\isanewline
 \ \ \ \ \isacommand{by}\isamarkupfalse%
 \ {\isacharparenleft}{\kern0pt}metis\ Int{\isacharunderscore}{\kern0pt}lower{\isadigit{1}}\ Un{\isacharunderscore}{\kern0pt}Int{\isacharunderscore}{\kern0pt}eq{\isacharparenleft}{\kern0pt}{\isadigit{3}}{\isacharparenright}{\kern0pt}\ card{\isacharunderscore}{\kern0pt}{\isadigit{0}}{\isacharunderscore}{\kern0pt}eq\ card{\isacharunderscore}{\kern0pt}Un{\isacharunderscore}{\kern0pt}le\ card{\isacharunderscore}{\kern0pt}seteq\ finite{\isachardot}{\kern0pt}emptyI\ finite{\isachardot}{\kern0pt}insertI\ \ \isanewline
-\ \ \ \ \ \ hY{\isadigit{2}}ne\ le{\isacharunderscore}{\kern0pt}add{\isacharunderscore}{\kern0pt}same{\isacharunderscore}{\kern0pt}cancel{\isadigit{1}}\ mult{\isacharunderscore}{\kern0pt}{\isadigit{2}}\ subset{\isacharunderscore}{\kern0pt}Un{\isacharunderscore}{\kern0pt}eq{\isacharparenright}{\kern0pt}\isanewline
+\ \ \ \ \ \ hY{\isadigit{2}}ne\ le{\isacharunderscore}{\kern0pt}add{\isacharunderscore}{\kern0pt}same{\isacharunderscore}{\kern0pt}cancel{\isadigit{1}}\ mult{\isacharunderscore}{\kern0pt}{\isadigit{2}}\ subset{\isacharunderscore}{\kern0pt}Un{\isacharunderscore}{\kern0pt}eq{\isacharparenright}{\kern0pt}%
+\begin{isamarkuptext}%
+Split the contradiction proof into the cases based on whether $|?X2| + |?Y2| > |X| + |Y|$ holds%
+\end{isamarkuptext}\isamarkuptrue%
 \ \ \isacommand{show}\isamarkupfalse%
 \ False\isanewline
 \ \ \isacommand{proof}\isamarkupfalse%
@@ -747,7 +768,10 @@ Generalized Cauchy--Davenport theorem for (non-abelian) groups due to Matt DeVos
 \ \isacommand{have}\isamarkupfalse%
 \ hXY{\isadigit{1}}M{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}{\isacharparenleft}{\kern0pt}{\isacharquery}{\kern0pt}X{\isadigit{2}}{\isacharcomma}{\kern0pt}\ {\isacharquery}{\kern0pt}Y{\isadigit{2}}{\isacharparenright}{\kern0pt}\ {\isasymin}\ M{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
 \ hY{\isadigit{2}}ne\ hX{\isadigit{2}}fin\ hX{\isadigit{2}}G\ hXYM\ M{\isacharunderscore}{\kern0pt}def\ \isacommand{by}\isamarkupfalse%
-\ blast\isanewline
+\ blast%
+\begin{isamarkuptext}%
+Show that $(?X2, ?Y2)$ is a smaller counterexample for the DeVos relation%
+\end{isamarkuptext}\isamarkuptrue%
 \ \ \ \ \isacommand{moreover}\isamarkupfalse%
 \ \isacommand{have}\isamarkupfalse%
 \ {\isachardoublequoteopen}{\isacharparenleft}{\kern0pt}{\isacharparenleft}{\kern0pt}{\isacharquery}{\kern0pt}X{\isadigit{2}}{\isacharcomma}{\kern0pt}\ {\isacharquery}{\kern0pt}Y{\isadigit{2}}{\isacharparenright}{\kern0pt}{\isacharcomma}{\kern0pt}\ {\isacharparenleft}{\kern0pt}X{\isacharcomma}{\kern0pt}\ Y{\isacharparenright}{\kern0pt}{\isacharparenright}{\kern0pt}\ {\isasymin}\ \ Restr\ devos{\isacharunderscore}{\kern0pt}rel\ {\isacharquery}{\kern0pt}fin{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
@@ -792,7 +816,10 @@ Generalized Cauchy--Davenport theorem for (non-abelian) groups due to Matt DeVos
 \ \isacommand{have}\isamarkupfalse%
 \ hXY{\isadigit{1}}M{\isacharcolon}{\kern0pt}\ {\isachardoublequoteopen}{\isacharparenleft}{\kern0pt}{\isacharquery}{\kern0pt}X{\isadigit{1}}{\isacharcomma}{\kern0pt}\ {\isacharquery}{\kern0pt}Y{\isadigit{1}}{\isacharparenright}{\kern0pt}\ {\isasymin}\ M{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
 \ M{\isacharunderscore}{\kern0pt}def\ hXgne\ hY{\isadigit{1}}fin\ hY{\isadigit{1}}G\ hXYM\ \isacommand{by}\isamarkupfalse%
-\ blast\isanewline
+\ blast%
+\begin{isamarkuptext}%
+Show that $(?X1, ?Y1)$ is a smaller counterexample for the DeVos relation%
+\end{isamarkuptext}\isamarkuptrue%
 \ \ \ \ \isacommand{moreover}\isamarkupfalse%
 \ \isacommand{have}\isamarkupfalse%
 \ {\isachardoublequoteopen}{\isacharparenleft}{\kern0pt}{\isacharparenleft}{\kern0pt}{\isacharquery}{\kern0pt}X{\isadigit{1}}{\isacharcomma}{\kern0pt}\ {\isacharquery}{\kern0pt}Y{\isadigit{1}}{\isacharparenright}{\kern0pt}{\isacharcomma}{\kern0pt}\ {\isacharparenleft}{\kern0pt}X{\isacharcomma}{\kern0pt}\ Y{\isacharparenright}{\kern0pt}{\isacharparenright}{\kern0pt}\ {\isasymin}\ \ Restr\ devos{\isacharunderscore}{\kern0pt}rel\ {\isacharquery}{\kern0pt}fin{\isachardoublequoteclose}\ \isacommand{using}\isamarkupfalse%
@@ -1026,48 +1053,44 @@ Generalized Cauchy--Davenport theorem for (non-abelian) groups due to Matt DeVos
 %:%335=111%:%
 %:%342=112%:%
 %:%343=112%:%
-%:%344=113%:%
 %:%345=113%:%
-%:%346=114%:%
 %:%347=114%:%
-%:%348=115%:%
+%:%348=114%:%
 %:%349=115%:%
-%:%350=116%:%
+%:%350=115%:%
 %:%351=116%:%
 %:%352=116%:%
-%:%353=116%:%
+%:%353=117%:%
 %:%354=117%:%
 %:%355=117%:%
 %:%356=117%:%
-%:%357=118%:%
 %:%358=118%:%
-%:%359=118%:%
 %:%360=119%:%
 %:%361=119%:%
-%:%362=120%:%
+%:%362=119%:%
 %:%363=120%:%
 %:%364=120%:%
-%:%365=121%:%
+%:%365=120%:%
 %:%366=121%:%
-%:%367=122%:%
+%:%367=121%:%
 %:%368=122%:%
-%:%369=123%:%
-%:%370=123%:%
-%:%371=124%:%
-%:%372=124%:%
+%:%369=122%:%
+%:%370=122%:%
+%:%371=123%:%
+%:%372=123%:%
 %:%373=124%:%
 %:%374=124%:%
 %:%375=125%:%
 %:%376=125%:%
 %:%377=126%:%
 %:%378=126%:%
-%:%379=127%:%
-%:%380=127%:%
+%:%379=126%:%
+%:%380=126%:%
 %:%381=127%:%
 %:%382=127%:%
 %:%383=128%:%
 %:%384=128%:%
-%:%385=128%:%
+%:%385=129%:%
 %:%386=129%:%
 %:%387=129%:%
 %:%388=129%:%
@@ -1086,131 +1109,124 @@ Generalized Cauchy--Davenport theorem for (non-abelian) groups due to Matt DeVos
 %:%401=134%:%
 %:%402=134%:%
 %:%403=134%:%
-%:%404=134%:%
-%:%405=134%:%
+%:%404=135%:%
+%:%405=135%:%
 %:%406=135%:%
-%:%407=135%:%
-%:%408=135%:%
+%:%407=136%:%
+%:%408=136%:%
 %:%409=136%:%
 %:%410=136%:%
 %:%411=136%:%
 %:%412=137%:%
 %:%413=137%:%
 %:%414=137%:%
-%:%415=137%:%
-%:%416=137%:%
+%:%415=138%:%
+%:%416=138%:%
 %:%417=138%:%
-%:%418=138%:%
-%:%419=138%:%
-%:%420=138%:%
-%:%421=138%:%
+%:%418=139%:%
+%:%419=139%:%
+%:%420=139%:%
+%:%421=139%:%
 %:%422=139%:%
-%:%423=139%:%
-%:%424=139%:%
-%:%425=139%:%
-%:%426=139%:%
+%:%423=140%:%
+%:%424=140%:%
+%:%425=140%:%
+%:%426=140%:%
 %:%427=140%:%
-%:%428=140%:%
-%:%429=140%:%
-%:%430=140%:%
-%:%431=140%:%
+%:%428=141%:%
+%:%429=141%:%
+%:%430=141%:%
+%:%431=141%:%
 %:%432=141%:%
-%:%433=141%:%
+%:%433=142%:%
 %:%434=142%:%
 %:%435=142%:%
-%:%436=143%:%
-%:%437=143%:%
-%:%438=144%:%
-%:%439=144%:%
-%:%440=145%:%
-%:%441=145%:%
-%:%442=145%:%
+%:%436=142%:%
+%:%437=142%:%
+%:%438=143%:%
+%:%441=144%:%
 %:%443=145%:%
 %:%444=145%:%
 %:%445=146%:%
 %:%446=146%:%
-%:%447=146%:%
-%:%448=146%:%
-%:%449=147%:%
-%:%450=147%:%
-%:%451=147%:%
-%:%452=147%:%
-%:%453=147%:%
-%:%454=148%:%
-%:%455=148%:%
-%:%456=148%:%
-%:%457=148%:%
-%:%458=149%:%
-%:%459=149%:%
+%:%447=147%:%
+%:%448=147%:%
+%:%449=148%:%
+%:%450=148%:%
+%:%451=148%:%
+%:%452=148%:%
+%:%453=148%:%
+%:%454=149%:%
+%:%455=149%:%
+%:%456=149%:%
+%:%457=149%:%
+%:%458=150%:%
+%:%459=150%:%
 %:%460=150%:%
 %:%461=150%:%
 %:%462=150%:%
-%:%463=150%:%
-%:%464=150%:%
+%:%463=151%:%
+%:%464=151%:%
 %:%465=151%:%
 %:%466=151%:%
 %:%467=152%:%
 %:%468=152%:%
-%:%469=152%:%
-%:%470=152%:%
+%:%469=153%:%
+%:%470=153%:%
 %:%471=153%:%
 %:%472=153%:%
 %:%473=153%:%
-%:%474=153%:%
+%:%474=154%:%
 %:%475=154%:%
 %:%476=155%:%
 %:%477=155%:%
 %:%478=155%:%
-%:%479=156%:%
+%:%479=155%:%
 %:%480=156%:%
 %:%481=156%:%
-%:%482=157%:%
-%:%483=158%:%
-%:%484=158%:%
-%:%485=159%:%
-%:%486=159%:%
-%:%487=160%:%
-%:%488=160%:%
-%:%489=161%:%
-%:%490=161%:%
-%:%491=161%:%
-%:%492=161%:%
-%:%493=162%:%
-%:%494=162%:%
-%:%495=162%:%
+%:%482=156%:%
+%:%483=156%:%
+%:%484=157%:%
+%:%486=158%:%
+%:%488=159%:%
+%:%489=159%:%
+%:%490=159%:%
+%:%491=160%:%
+%:%492=160%:%
+%:%493=160%:%
+%:%494=161%:%
 %:%496=162%:%
-%:%497=163%:%
 %:%498=163%:%
-%:%499=164%:%
+%:%499=163%:%
 %:%500=164%:%
 %:%501=164%:%
-%:%502=164%:%
-%:%503=164%:%
-%:%504=165%:%
-%:%505=165%:%
-%:%506=165%:%
-%:%507=165%:%
-%:%508=166%:%
-%:%509=166%:%
+%:%502=165%:%
+%:%503=165%:%
+%:%504=166%:%
+%:%505=166%:%
+%:%506=166%:%
+%:%507=166%:%
+%:%508=167%:%
+%:%509=167%:%
 %:%510=167%:%
 %:%511=167%:%
-%:%512=167%:%
-%:%513=167%:%
-%:%514=168%:%
-%:%515=168%:%
-%:%516=168%:%
+%:%512=168%:%
+%:%513=168%:%
+%:%514=169%:%
+%:%515=169%:%
+%:%516=169%:%
 %:%517=169%:%
 %:%518=169%:%
 %:%519=170%:%
 %:%520=170%:%
-%:%521=171%:%
-%:%522=171%:%
+%:%521=170%:%
+%:%522=170%:%
 %:%523=171%:%
 %:%524=171%:%
-%:%525=171%:%
+%:%525=172%:%
 %:%526=172%:%
-%:%527=173%:%
-%:%528=173%:%
+%:%527=172%:%
+%:%528=172%:%
 %:%529=173%:%
 %:%530=173%:%
 %:%531=173%:%
@@ -1218,162 +1234,159 @@ Generalized Cauchy--Davenport theorem for (non-abelian) groups due to Matt DeVos
 %:%533=174%:%
 %:%534=175%:%
 %:%535=175%:%
-%:%536=175%:%
-%:%537=175%:%
+%:%536=176%:%
+%:%537=176%:%
 %:%538=176%:%
-%:%539=177%:%
-%:%540=177%:%
-%:%541=178%:%
+%:%539=176%:%
+%:%540=176%:%
+%:%541=177%:%
 %:%542=178%:%
 %:%543=178%:%
-%:%544=179%:%
-%:%545=179%:%
-%:%546=180%:%
-%:%547=180%:%
-%:%548=181%:%
-%:%549=181%:%
-%:%550=181%:%
-%:%551=181%:%
-%:%552=182%:%
-%:%553=183%:%
-%:%554=184%:%
-%:%555=184%:%
-%:%556=185%:%
-%:%557=185%:%
-%:%558=185%:%
-%:%559=185%:%
-%:%560=185%:%
-%:%561=186%:%
-%:%562=186%:%
-%:%563=187%:%
-%:%564=187%:%
-%:%565=188%:%
-%:%566=188%:%
-%:%567=189%:%
-%:%568=189%:%
-%:%569=190%:%
-%:%570=190%:%
-%:%571=191%:%
-%:%572=191%:%
-%:%573=192%:%
-%:%574=192%:%
-%:%575=192%:%
-%:%576=193%:%
-%:%577=193%:%
-%:%578=194%:%
-%:%579=194%:%
-%:%580=195%:%
-%:%581=195%:%
-%:%582=195%:%
-%:%583=196%:%
-%:%584=196%:%
-%:%585=196%:%
-%:%586=196%:%
-%:%587=197%:%
-%:%588=197%:%
-%:%589=198%:%
-%:%590=198%:%
-%:%591=199%:%
-%:%592=199%:%
-%:%593=200%:%
-%:%594=200%:%
-%:%595=200%:%
+%:%544=178%:%
+%:%545=178%:%
+%:%546=178%:%
+%:%547=179%:%
+%:%548=179%:%
+%:%549=180%:%
+%:%550=180%:%
+%:%551=180%:%
+%:%552=180%:%
+%:%553=181%:%
+%:%554=182%:%
+%:%555=182%:%
+%:%556=183%:%
+%:%557=183%:%
+%:%558=183%:%
+%:%559=184%:%
+%:%560=184%:%
+%:%561=185%:%
+%:%562=185%:%
+%:%563=186%:%
+%:%564=186%:%
+%:%565=186%:%
+%:%566=186%:%
+%:%567=187%:%
+%:%568=188%:%
+%:%569=189%:%
+%:%570=189%:%
+%:%571=190%:%
+%:%572=190%:%
+%:%573=190%:%
+%:%574=190%:%
+%:%575=190%:%
+%:%576=191%:%
+%:%579=192%:%
+%:%581=193%:%
+%:%582=193%:%
+%:%583=194%:%
+%:%584=194%:%
+%:%585=195%:%
+%:%586=195%:%
+%:%587=196%:%
+%:%588=196%:%
+%:%589=197%:%
+%:%590=197%:%
+%:%591=198%:%
+%:%592=198%:%
+%:%593=198%:%
+%:%594=199%:%
+%:%595=199%:%
 %:%596=200%:%
 %:%597=200%:%
 %:%598=201%:%
 %:%599=201%:%
-%:%600=202%:%
+%:%600=201%:%
 %:%601=202%:%
-%:%602=203%:%
-%:%603=203%:%
-%:%604=203%:%
+%:%602=202%:%
+%:%603=202%:%
+%:%604=202%:%
 %:%605=203%:%
 %:%606=203%:%
 %:%607=204%:%
 %:%608=204%:%
-%:%609=204%:%
-%:%610=204%:%
-%:%611=204%:%
-%:%612=205%:%
-%:%613=205%:%
-%:%614=205%:%
-%:%615=205%:%
-%:%616=206%:%
-%:%617=206%:%
-%:%618=207%:%
-%:%619=207%:%
-%:%620=208%:%
-%:%621=208%:%
+%:%609=205%:%
+%:%610=205%:%
+%:%611=206%:%
+%:%612=206%:%
+%:%613=206%:%
+%:%614=206%:%
+%:%615=206%:%
+%:%616=207%:%
+%:%617=207%:%
+%:%618=208%:%
+%:%619=208%:%
+%:%620=209%:%
+%:%621=209%:%
 %:%622=209%:%
 %:%623=209%:%
-%:%624=210%:%
+%:%624=209%:%
 %:%625=210%:%
-%:%626=211%:%
-%:%627=211%:%
-%:%628=211%:%
-%:%629=212%:%
-%:%630=212%:%
-%:%631=212%:%
-%:%632=212%:%
-%:%633=213%:%
-%:%634=213%:%
-%:%635=214%:%
-%:%636=214%:%
-%:%637=215%:%
-%:%638=215%:%
-%:%639=216%:%
-%:%640=216%:%
-%:%641=216%:%
+%:%626=210%:%
+%:%627=210%:%
+%:%628=210%:%
+%:%629=210%:%
+%:%630=211%:%
+%:%631=211%:%
+%:%632=211%:%
+%:%633=211%:%
+%:%634=212%:%
+%:%635=212%:%
+%:%636=213%:%
+%:%637=213%:%
+%:%638=214%:%
+%:%639=214%:%
+%:%640=215%:%
+%:%641=215%:%
 %:%642=216%:%
 %:%643=216%:%
 %:%644=217%:%
 %:%645=217%:%
-%:%646=218%:%
+%:%646=217%:%
 %:%647=218%:%
-%:%648=219%:%
-%:%649=219%:%
-%:%650=219%:%
+%:%648=218%:%
+%:%649=218%:%
+%:%650=218%:%
 %:%651=219%:%
 %:%652=219%:%
 %:%653=220%:%
 %:%654=220%:%
-%:%655=220%:%
-%:%656=220%:%
-%:%657=220%:%
-%:%658=221%:%
-%:%659=221%:%
-%:%660=221%:%
-%:%661=221%:%
-%:%662=222%:%
-%:%663=222%:%
-%:%664=223%:%
-%:%665=223%:%
-%:%666=224%:%
-%:%667=224%:%
+%:%655=221%:%
+%:%656=221%:%
+%:%657=222%:%
+%:%658=222%:%
+%:%659=222%:%
+%:%660=222%:%
+%:%661=222%:%
+%:%662=223%:%
+%:%663=223%:%
+%:%664=224%:%
+%:%665=224%:%
+%:%666=225%:%
+%:%667=225%:%
 %:%668=225%:%
 %:%669=225%:%
-%:%670=226%:%
+%:%670=225%:%
 %:%671=226%:%
-%:%672=227%:%
-%:%673=227%:%
-%:%674=228%:%
-%:%675=228%:%
-%:%676=228%:%
-%:%677=229%:%
-%:%678=229%:%
-%:%679=229%:%
-%:%680=229%:%
-%:%681=230%:%
-%:%682=230%:%
-%:%683=231%:%
-%:%684=231%:%
-%:%685=231%:%
+%:%672=226%:%
+%:%673=226%:%
+%:%674=226%:%
+%:%675=226%:%
+%:%676=227%:%
+%:%677=227%:%
+%:%678=227%:%
+%:%679=227%:%
+%:%680=228%:%
+%:%681=228%:%
+%:%682=229%:%
+%:%683=229%:%
+%:%684=230%:%
+%:%685=230%:%
 %:%686=231%:%
-%:%687=232%:%
-%:%688=233%:%
-%:%689=233%:%
-%:%690=234%:%
-%:%691=234%:%
+%:%687=231%:%
+%:%688=232%:%
+%:%689=232%:%
+%:%690=233%:%
+%:%691=233%:%
 %:%692=234%:%
 %:%693=234%:%
 %:%694=234%:%
@@ -1381,43 +1394,41 @@ Generalized Cauchy--Davenport theorem for (non-abelian) groups due to Matt DeVos
 %:%696=235%:%
 %:%697=235%:%
 %:%698=235%:%
-%:%699=235%:%
+%:%699=236%:%
 %:%700=236%:%
-%:%701=236%:%
+%:%701=237%:%
 %:%702=237%:%
 %:%703=237%:%
-%:%704=238%:%
+%:%704=237%:%
 %:%705=238%:%
 %:%706=239%:%
 %:%707=239%:%
 %:%708=240%:%
 %:%709=240%:%
-%:%710=241%:%
-%:%711=241%:%
-%:%712=242%:%
-%:%713=242%:%
-%:%714=243%:%
-%:%715=244%:%
-%:%716=244%:%
-%:%717=245%:%
-%:%718=245%:%
-%:%719=246%:%
-%:%720=246%:%
-%:%721=247%:%
-%:%722=247%:%
-%:%723=247%:%
-%:%724=247%:%
-%:%725=248%:%
-%:%726=248%:%
-%:%727=249%:%
-%:%728=249%:%
-%:%729=249%:%
-%:%730=250%:%
-%:%731=250%:%
-%:%732=250%:%
-%:%733=250%:%
+%:%710=240%:%
+%:%711=240%:%
+%:%712=240%:%
+%:%713=241%:%
+%:%714=241%:%
+%:%715=241%:%
+%:%716=241%:%
+%:%717=241%:%
+%:%718=242%:%
+%:%719=242%:%
+%:%720=243%:%
+%:%721=243%:%
+%:%722=244%:%
+%:%723=244%:%
+%:%724=245%:%
+%:%725=245%:%
+%:%726=246%:%
+%:%727=246%:%
+%:%728=247%:%
+%:%729=247%:%
+%:%730=248%:%
+%:%731=248%:%
+%:%732=249%:%
 %:%734=250%:%
-%:%735=251%:%
 %:%736=251%:%
 %:%737=251%:%
 %:%738=252%:%
@@ -1430,68 +1441,91 @@ Generalized Cauchy--Davenport theorem for (non-abelian) groups due to Matt DeVos
 %:%745=254%:%
 %:%746=255%:%
 %:%747=255%:%
-%:%748=255%:%
-%:%749=255%:%
-%:%750=255%:%
-%:%751=256%:%
-%:%752=256%:%
-%:%753=256%:%
-%:%754=256%:%
+%:%748=256%:%
+%:%749=256%:%
+%:%750=256%:%
+%:%751=257%:%
+%:%752=257%:%
+%:%753=257%:%
+%:%754=257%:%
 %:%755=257%:%
-%:%756=257%:%
+%:%756=258%:%
 %:%757=258%:%
 %:%758=258%:%
-%:%759=258%:%
-%:%760=258%:%
-%:%761=258%:%
-%:%762=259%:%
-%:%763=259%:%
-%:%764=260%:%
-%:%765=260%:%
+%:%759=259%:%
+%:%760=259%:%
+%:%761=260%:%
+%:%762=260%:%
+%:%763=261%:%
+%:%764=261%:%
+%:%765=261%:%
 %:%766=261%:%
-%:%767=261%:%
-%:%768=261%:%
-%:%769=261%:%
-%:%770=261%:%
+%:%767=262%:%
+%:%768=262%:%
+%:%769=262%:%
+%:%770=262%:%
 %:%771=262%:%
-%:%772=262%:%
-%:%773=262%:%
-%:%774=262%:%
-%:%775=263%:%
-%:%776=263%:%
+%:%773=263%:%
+%:%775=264%:%
+%:%776=264%:%
 %:%777=264%:%
 %:%778=264%:%
-%:%779=264%:%
+%:%779=265%:%
 %:%780=265%:%
-%:%781=265%:%
-%:%782=265%:%
-%:%783=265%:%
-%:%784=265%:%
+%:%781=266%:%
+%:%782=266%:%
+%:%783=266%:%
+%:%784=266%:%
 %:%785=266%:%
-%:%786=266%:%
-%:%787=266%:%
-%:%788=266%:%
-%:%789=267%:%
-%:%790=267%:%
-%:%791=268%:%
-%:%792=268%:%
-%:%793=268%:%
-%:%794=268%:%
-%:%795=268%:%
-%:%796=269%:%
-%:%797=269%:%
-%:%798=269%:%
-%:%799=269%:%
-%:%800=270%:%
-%:%801=270%:%
-%:%802=271%:%
-%:%803=271%:%
-%:%804=271%:%
-%:%805=271%:%
-%:%806=271%:%
-%:%807=272%:%
-%:%808=272%:%
-%:%809=273%:%
-%:%815=273%:%
-%:%820=274%:%
-%:%825=275%:%
+%:%786=267%:%
+%:%787=267%:%
+%:%788=268%:%
+%:%789=268%:%
+%:%790=269%:%
+%:%791=269%:%
+%:%792=269%:%
+%:%793=269%:%
+%:%794=269%:%
+%:%795=270%:%
+%:%796=270%:%
+%:%797=270%:%
+%:%798=270%:%
+%:%799=271%:%
+%:%800=271%:%
+%:%801=272%:%
+%:%802=272%:%
+%:%803=272%:%
+%:%804=273%:%
+%:%805=273%:%
+%:%806=273%:%
+%:%807=273%:%
+%:%808=273%:%
+%:%809=274%:%
+%:%810=274%:%
+%:%811=274%:%
+%:%812=274%:%
+%:%813=275%:%
+%:%814=275%:%
+%:%815=276%:%
+%:%816=276%:%
+%:%817=276%:%
+%:%818=276%:%
+%:%819=276%:%
+%:%821=277%:%
+%:%823=278%:%
+%:%824=278%:%
+%:%825=278%:%
+%:%826=278%:%
+%:%827=279%:%
+%:%828=279%:%
+%:%829=280%:%
+%:%830=280%:%
+%:%831=280%:%
+%:%832=280%:%
+%:%833=280%:%
+%:%834=281%:%
+%:%835=281%:%
+%:%836=282%:%
+%:%842=282%:%
+%:%847=283%:%
+%:%852=284%:%

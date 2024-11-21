@@ -592,4 +592,17 @@ lemma ecard_eq_card_finite:
   shows "ecard A = card A" 
   using assms ecard_def by metis
 
+
+context monoid
+begin
+
+text\<open>$orderOf$ -- abbreviation for the order of a monoid \<close>
+abbreviation orderOf where "orderOf == ecard"
+
+
 end
+
+end
+
+
+
