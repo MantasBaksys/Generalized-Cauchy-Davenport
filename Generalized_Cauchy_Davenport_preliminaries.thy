@@ -348,9 +348,10 @@ lemma mem_nat_inv_powers_invertible:
 lemma powers_group:
   assumes "g \<in> M" and "invertible g"
   shows "Group_Theory.group (powers g) (\<cdot>) \<one>"
-proof(auto simp add: group_def Group_Theory.group_axioms_def assms powers_monoid)
-  show "\<And>u. u \<in> powers g \<Longrightarrow> monoid.invertible (powers g) (\<cdot>) \<one> u" using assms 
+proof-
+  have "\<And>u. u \<in> powers g \<Longrightarrow> monoid.invertible (powers g) (\<cdot>) \<one> u" using assms 
     mem_nat_inv_powers_invertible mem_nat_powers_invertible powers_eq_union_nat_powers by auto
+  then show ?thesis using group_def Group_Theory.group_axioms_def assms powers_monoid by metis
 qed
 
 lemma nat_powers_ne_one:
