@@ -386,7 +386,7 @@ begin
 
 subsection\<open>Definition of the order of an element in a monoid\<close>
 definition order 
-  where "order g = (if (\<exists> n. n > 0 \<and> g ^ n = \<one>) then Min {n. g ^ n = \<one> \<and> n > 0} else 0)"
+  where "order g = (if (\<exists> n. n > 0 \<and> g ^ n = \<one>) then Min {n. g ^ n = \<one> \<and> n > 0} else \<infinity>)"
 
 definition min_order where "min_order = Min ((order ` M) - {0})"
 
